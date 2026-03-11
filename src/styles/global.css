@@ -1,5 +1,8 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   html {
@@ -56,105 +59,68 @@
     background-color: oklch(0.35 0.07 245);
   }
 
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    border: 2px solid oklch(0.28 0.07 245);
-    color: oklch(0.28 0.07 245);
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    padding: 0.75rem 1.5rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.2s;
-    text-decoration: none;
-    background: transparent;
-  }
-  .btn-outline:hover {
-    background-color: oklch(0.28 0.07 245);
-    color: white;
+  .container {
+    @apply max-w-7xl mx-auto px-4;
   }
 
   .section-label {
+    @apply text-xs uppercase tracking-widest text-[oklch(0.75_0.15_70)];
     font-family: 'Syne', sans-serif;
     font-weight: 700;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: oklch(0.75 0.15 70);
   }
-}
 
-@layer utilities {
-  /* Newsletter body typography */
-  .newsletter-body h1,
-  .newsletter-body h2,
-  .newsletter-body h3,
-  .newsletter-body h4 {
+  .stat-number {
+    @apply text-4xl md:text-5xl text-white;
     font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    color: oklch(0.20 0.07 245);
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
+    font-weight: 800;
   }
-  .newsletter-body h2 { font-size: 1.4rem; }
-  .newsletter-body h3 { font-size: 1.15rem; }
+
+  .newsletter-body {
+    @apply max-w-none;
+  }
 
   .newsletter-body p {
-    margin-bottom: 1.25rem !important;
-    line-height: 1.75;
-    color: oklch(0.30 0.05 245);
+    @apply mb-7 leading-relaxed;
+  }
+
+  .newsletter-body h2 {
+    @apply text-2xl mt-8 mb-4 text-white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+  }
+
+  .newsletter-body h3 {
+    @apply text-xl mt-6 mb-3 text-white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
   }
 
   .newsletter-body ul,
   .newsletter-body ol {
-    margin-bottom: 1.25rem;
-    padding-left: 1.5rem;
+    @apply ml-6 mb-6;
   }
 
   .newsletter-body li {
-    margin-bottom: 0.4rem;
-    line-height: 1.7;
+    @apply mb-2;
   }
 
-  .newsletter-body img {
-    max-width: 100%;
-    border-radius: 0.75rem;
-    margin: 1.5rem 0;
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
 
-  .newsletter-body a {
-    color: oklch(0.28 0.07 245);
-    text-decoration: underline;
-  }
-
-  .newsletter-body strong {
-    font-weight: 700;
-    color: oklch(0.20 0.07 245);
-  }
-
-  .newsletter-body blockquote {
-    border-left: 4px solid oklch(0.75 0.15 70);
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    color: oklch(0.40 0.06 245);
-    font-style: italic;
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Ken Burns animation */
 @keyframes kenBurns {
-  from { transform: scale(1.05); }
-  to { transform: scale(1); }
-}
-
-.stat-number {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  font-size: 2.5rem;
-  color: white;
-  line-height: 1;
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1.1);
+  }
 }

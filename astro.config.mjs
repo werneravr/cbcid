@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -10,8 +10,5 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://cbcid.netlify.app',
   output: 'static',
-  vite: {
-    plugins: [tailwindcss()]
-  },
-  integrations: [react(), mdx(), sitemap()]
+  integrations: [tailwind(), react(), mdx(), sitemap()]
 });
