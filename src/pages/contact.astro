@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+const team = [
+  { name: "Muneeb (Mo) Hendricks", role: "CID Manager", email: "mo@campsbaycid.org", mobile: "084 861 1955", office: "087 222 9800" },
+  { name: "Kyle Visagie", role: "Operations Manager", email: "kyle@campsbaycid.org", mobile: "082 449 4932", office: null },
+  { name: "Sarah Meder", role: "Communications Manager", email: "sarah@campsbaycid.org", mobile: "076 100 8544", office: null },
+  { name: "Jay Mboniso", role: "CID Operations Co-Ordinator", email: "jay@campsbaycid.org", mobile: "081 364 8114", office: null },
+  { name: "Alfonzo Andries", role: "Assistant Public Safety Manager – Operations", email: "alfonzo@campsbaycid.org", mobile: "068 453 9009", office: null },
+  { name: "Bjorn Train", role: "Assistant Public Safety Manager – Technical Services", email: "bjorn@campsbaycid.org", mobile: "077 449 7391", office: null },
+];
+const contactCards = [
+  { title: "24/7 Emergency Hotline", value: "+27 87 223 2864", sub: "For urgent safety matters", href: "tel:+27872232864", highlight: true },
+  { title: "CID Office", value: "+27 87 222 9800", sub: "Mon–Fri, 9am–5pm", href: "tel:+27872229800", highlight: false },
+  { title: "General Enquiries", value: "connect@campsbaycid.org", sub: "We respond within 24 hours", href: "mailto:connect@campsbaycid.org", highlight: false },
+  { title: "WhatsApp", value: "+27 87 223 2864", sub: "Quick messages welcome", href: "https://wa.me/27872232864", highlight: false },
+  { title: "Office Address", value: "27 First Crescent", sub: "Camps Bay, Cape Town, 8005", href: "https://maps.google.com/?q=27+First+Crescent+Camps+Bay+Cape+Town", highlight: false },
+  { title: "Office Hours", value: "Mon–Fri: 9am–5pm", sub: "Control room: 24/7", href: null, highlight: false },
+];
+---
+<Layout title="Contact Us | Camps Bay CID" description="Get in touch with the Camps Bay CID — emergency hotline, office contacts, and team directory.">
+  <!-- Hero -->
+  <section class="bg-[oklch(0.28_0.07_245)] pt-36 pb-16">
+    <div class="container text-white">
+      <span class="section-label">Get in Touch</span>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl mt-2">Contact Us</h1>
+      <p class="text-white/70 mt-4 max-w-xl font-['Nunito_Sans']">Reach out to our team for safety concerns, general enquiries, or membership information.</p>
+    </div>
+  </section>
+
+  <!-- Contact cards -->
+  <section class="py-16 bg-[oklch(0.97_0.01_245)]">
+    <div class="container">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+        {contactCards.map((card) => (
+          card.href ? (
+            <a href={card.href} target={card.href.startsWith('http') ? '_blank' : undefined} rel={card.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              class={`rounded-2xl p-6 shadow-sm transition-all duration-200 hover:shadow-md fade-in-up ${card.highlight ? 'bg-[oklch(0.20_0.07_245)] text-white' : 'bg-white'}`}>
+              <h3 class={`font-['Syne'] font-700 text-sm uppercase tracking-wide mb-2 ${card.highlight ? 'text-[#6CCFF6]' : 'text-[oklch(0.45_0.04_245)]'}`}>{card.title}</h3>
+              <p class={`font-['Syne'] font-800 text-lg mb-1 ${card.highlight ? 'text-white' : 'text-[oklch(0.20_0.07_245)]'}`}>{card.value}</p>
+              <p class={`text-sm font-['Nunito_Sans'] ${card.highlight ? 'text-white/70' : 'text-[oklch(0.55_0.04_245)]'}`}>{card.sub}</p>
+            </a>
+          ) : (
+            <div class="bg-white rounded-2xl p-6 shadow-sm fade-in-up">
+              <h3 class="font-['Syne'] font-700 text-sm uppercase tracking-wide mb-2 text-[oklch(0.45_0.04_245)]">{card.title}</h3>
+              <p class="font-['Syne'] font-800 text-lg mb-1 text-[oklch(0.20_0.07_245)]">{card.value}</p>
+              <p class="text-sm font-['Nunito_Sans'] text-[oklch(0.55_0.04_245)]">{card.sub}</p>
+            </div>
+          )
+        ))}
+      </div>
+
+      <!-- Contact form + team -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- Form -->
+        <div class="fade-in-up">
+          <span class="section-label">Send a Message</span>
+          <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mt-3 mb-8">How Can We Help?</h2>
+          <form id="contact-form" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-xs font-['Syne'] font-700 text-[oklch(0.40_0.04_245)] uppercase tracking-wide mb-2">Name</label>
+                <input type="text" name="name" required placeholder="Your full name" class="w-full bg-white border border-[oklch(0.88_0.01_245)] rounded-lg px-4 py-3 text-sm font-['Nunito_Sans'] focus:outline-none focus:border-[#6CCFF6] transition-colors" />
+              </div>
+              <div>
+                <label class="block text-xs font-['Syne'] font-700 text-[oklch(0.40_0.04_245)] uppercase tracking-wide mb-2">Email</label>
+                <input type="email" name="email" required placeholder="your@email.com" class="w-full bg-white border border-[oklch(0.88_0.01_245)] rounded-lg px-4 py-3 text-sm font-['Nunito_Sans'] focus:outline-none focus:border-[#6CCFF6] transition-colors" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-['Syne'] font-700 text-[oklch(0.40_0.04_245)] uppercase tracking-wide mb-2">Subject</label>
+              <select name="subject" class="w-full bg-white border border-[oklch(0.88_0.01_245)] rounded-lg px-4 py-3 text-sm font-['Nunito_Sans'] focus:outline-none focus:border-[#6CCFF6] transition-colors">
+                <option value="">Select a subject</option>
+                <option value="safety">Safety Concern</option>
+                <option value="cleaning">Cleaning Issue</option>
+                <option value="membership">Membership Enquiry</option>
+                <option value="general">General Enquiry</option>
+                <option value="media">Media Enquiry</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-['Syne'] font-700 text-[oklch(0.40_0.04_245)] uppercase tracking-wide mb-2">Message</label>
+              <textarea name="message" required rows="5" placeholder="How can we help you?" class="w-full bg-white border border-[oklch(0.88_0.01_245)] rounded-lg px-4 py-3 text-sm font-['Nunito_Sans'] focus:outline-none focus:border-[#6CCFF6] transition-colors resize-none"></textarea>
+            </div>
+            <button type="submit" class="btn-gold w-full justify-center inline-flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <span>Send Message</span>
+            </button>
+          </form>
+          <div id="form-success" class="hidden bg-green-50 border border-green-200 rounded-xl p-6 text-center">
+            <p class="font-['Syne'] font-700 text-green-800 text-lg mb-2">Message Sent!</p>
+            <p class="text-green-700 font-['Nunito_Sans'] text-sm">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+
+        <!-- Team contacts -->
+        <div class="fade-in-up">
+          <span class="section-label">Direct Contacts</span>
+          <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mt-3 mb-8">Key Contacts</h2>
+          <div class="space-y-4">
+            {team.map((m) => (
+              <div class="bg-white rounded-xl p-5 shadow-sm">
+                <div class="flex items-center gap-4 mb-3">
+                  <div class="w-12 h-12 rounded-full bg-[oklch(0.28_0.07_245)] flex items-center justify-center flex-shrink-0">
+                    <span class="font-['Syne'] font-800 text-white text-sm">{m.name.split(" ").map(n => n[0]).slice(0, 2).join("")}</span>
+                  </div>
+                  <div>
+                    <h4 class="font-['Syne'] font-700 text-[oklch(0.20_0.07_245)]">{m.name}</h4>
+                    <p class="text-[oklch(0.55_0.04_245)] text-xs font-['Nunito_Sans']">{m.role}</p>
+                  </div>
+                </div>
+                <div class="space-y-1.5 text-sm font-['Nunito_Sans'] pl-16">
+                  <a href={`mailto:${m.email}`} class="block text-[oklch(0.28_0.07_245)] hover:text-[#6CCFF6] transition-colors">{m.email}</a>
+                  <a href={`tel:${m.mobile.replace(/\s/g, "")}`} class="block text-[oklch(0.45_0.04_245)]">Mobile: {m.mobile}</a>
+                  {m.office && <a href={`tel:${m.office.replace(/\s/g, "")}`} class="block text-[oklch(0.45_0.04_245)]">Office: {m.office}</a>}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="mt-6 bg-[oklch(0.28_0.07_245)] rounded-xl p-6 text-white">
+            <h4 class="font-['Syne'] font-700 mb-2">Office Location</h4>
+            <p class="text-white/70 text-sm font-['Nunito_Sans'] mb-3">27 First Crescent, Camps Bay, Cape Town, 8005</p>
+            <a href="https://maps.google.com/?q=27+First+Crescent+Camps+Bay+Cape+Town" target="_blank" rel="noopener noreferrer" class="btn-gold text-sm py-2 px-4 inline-flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>View on Google Maps</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const success = document.getElementById('form-success');
+  if (form && success) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+    });
+  }
+</script>

@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { YouTubeEmbed, ShortsGrid } from '../../components/YouTubeEmbed.tsx';
+const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG';
+const BANNER_IMG = `${CDN}/social_banner_862bb7c7.webp`;
+const CLOTHING_IMG = `${CDN}/social_clothing_drive_8fa80312.jpg`;
+const GREY_TEAM_IMG = `${CDN}/social_grey_team_3b3ebb2e.jpg`;
+const SEDGEMOOR_IMG = `${CDN}/social_sedgemoor_team_e9f43f36.jpg`;
+const FOOD_IMG = `${CDN}/social_food_distribution_5e2b430e.jpg`;
+const GIVE_SMART_LETTER = `${CDN}/GiveSmart_Campaign_Letter_b9e37be3.pdf`;
+const GIVE_SMART_FLYER = `${CDN}/GiveSmart_Flyer_5882e0d5.pdf`;
+---
+<Layout title="Social Development | Camps Bay CID" description="The Camps Bay CID's social development programme addresses the root causes of vagrancy and crime, placing 35 people in permanent employment.">
+  <!-- Hero -->
+  <section class="relative flex items-end overflow-hidden pt-20 md:pt-[7.5rem]">
+    <img src={BANNER_IMG} alt="Camps Bay CID social development team" class="w-full" style="display:block;max-height:85vh;object-fit:contain;background-color:oklch(0.15 0.07 245)" />
+    <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/90 via-[oklch(0.20_0.07_245)]/30 to-transparent pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 right-0 z-10 container pb-10 md:pb-14 text-white">
+      <a href="/programmes" class="inline-flex items-center gap-1 text-[#6CCFF6] text-sm font-['Nunito_Sans'] mb-4 hover:opacity-80 transition-opacity">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Our Programmes
+      </a>
+      <div class="section-label mb-3">Programme 03</div>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl leading-tight max-w-3xl">
+        Social<br />
+        <span class="text-[#6CCFF6]">Development</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <p class="text-[oklch(0.35_0.05_245)] text-xl leading-relaxed font-['Nunito_Sans']">
+        The CID's social development programme addresses the root causes of vagrancy and crime in Camps Bay. We work with social development organisations to provide pathways off the streets and into sustainable livelihoods — because lasting safety comes from addressing underlying social challenges.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-12 bg-[oklch(0.28_0.07_245)]">
+    <div class="container">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        {[
+          { value: "35", label: "People placed in permanent employment" },
+          { value: "3", label: "Partner organisations" },
+          { value: "100+", label: "Individuals assisted" },
+          { value: "24/7", label: "Outreach operations" },
+        ].map((s) => (
+          <div>
+            <div class="font-['Syne'] font-800 text-3xl md:text-4xl text-[#6CCFF6]">{s.value}</div>
+            <div class="text-white/70 text-sm mt-1 font-['Nunito_Sans']">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Ignisive partnership -->
+  <section class="py-16 bg-white">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div class="fade-in-up">
+          <span class="section-label">Our Approach</span>
+          <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mt-3 mb-5">Partnership with Ignisive</h2>
+          <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] leading-relaxed mb-4">
+            The CID's social development programme is delivered in partnership with Ignisive, a specialist social development organisation. Together, we provide a comprehensive programme that includes outreach, assessment, skills training, and employment placement.
+          </p>
+          <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] leading-relaxed mb-5">
+            Our approach is evidence-based and outcomes-focused. We measure success by the number of people who achieve sustainable independence — not by the number of people we assist.
+          </p>
+          <ul class="space-y-2">
+            {["Street outreach and needs assessment", "Emergency shelter and food support", "Skills training and development", "Employment placement and follow-up", "Family reunification where appropriate"].map((item) => (
+              <li class="flex items-center gap-3 text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] text-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#6CCFF6] flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="fade-in-up grid grid-cols-2 gap-4">
+          <img src={GREY_TEAM_IMG} alt="Social development team" class="rounded-2xl w-full h-48 object-cover" />
+          <img src={SEDGEMOOR_IMG} alt="Sedgemoor team" class="rounded-2xl w-full h-48 object-cover" />
+          <img src={CLOTHING_IMG} alt="Clothing drive" class="rounded-2xl w-full h-48 object-cover" />
+          <img src={FOOD_IMG} alt="Food distribution" class="rounded-2xl w-full h-48 object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GiveSmart -->
+  <section class="py-16 bg-[oklch(0.96_0.01_245)]">
+    <div class="container max-w-4xl">
+      <div class="fade-in-up">
+        <span class="section-label">Campaign</span>
+        <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mt-3 mb-5">Give Smart</h2>
+        <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] leading-relaxed mb-6">
+          The Give Smart campaign encourages residents and visitors to donate to the CID's social development programme rather than giving cash directly to individuals on the street. Cash donations can inadvertently sustain homelessness rather than addressing it. By donating to the programme, you help fund sustainable pathways out of homelessness.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={GIVE_SMART_LETTER} target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>Campaign Letter</span>
+          </a>
+          <a href={GIVE_SMART_FLYER} target="_blank" rel="noopener noreferrer" class="btn-navy inline-flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>Download Flyer</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Camps Bay Cares YouTube Shorts -->
+  <section class="py-16 bg-white">
+    <div class="container">
+      <div class="fade-in-up mb-10">
+        <span class="section-label">Stories</span>
+        <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mt-3">Camps Bay Cares</h2>
+        <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] mt-3 max-w-2xl">Real stories from real people whose lives have been changed by the programme.</p>
+      </div>
+      <ShortsGrid client:load />
+    </div>
+  </section>
+
+  <!-- Main video -->
+  <section class="py-16 bg-[oklch(0.28_0.07_245)]">
+    <div class="container max-w-4xl">
+      <div class="fade-in-up mb-8 text-white">
+        <span class="section-label">Watch</span>
+        <h2 class="font-['Syne'] font-800 text-3xl mt-3">Our Story</h2>
+      </div>
+      <YouTubeEmbed videoId="dQw4w9WgXcQ" title="Camps Bay CID Social Development Programme" client:load />
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[oklch(0.96_0.01_245)]">
+    <div class="container text-center">
+      <h3 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mb-4">Support the Programme</h3>
+      <p class="text-[oklch(0.45_0.04_245)] mb-8 font-['Nunito_Sans']">Contact us to learn how you can support the social development programme.</p>
+      <a href="/contact" class="btn-gold inline-flex items-center gap-2">
+        <span>Get in Touch</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

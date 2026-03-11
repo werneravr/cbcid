@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import documents from '../data/documents.json';
+---
+<Layout title="Resources & FAQ | Camps Bay CID" description="Access CID documents, reports, and answers to frequently asked questions.">
+  <!-- Hero -->
+  <section class="bg-[oklch(0.28_0.07_245)] pt-36 pb-16">
+    <div class="container text-white">
+      <span class="section-label">Information Hub</span>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl mt-2">Resources &amp; FAQ</h1>
+      <p class="text-white/70 mt-4 max-w-xl font-['Nunito_Sans']">Access CID documents, reports, and answers to frequently asked questions.</p>
+    </div>
+  </section>
+
+  <!-- Quick links -->
+  <section class="py-12 bg-white border-b border-[oklch(0.92_0.01_245)]">
+    <div class="container">
+      <div class="flex flex-wrap gap-4">
+        <a href="/faq" class="btn-navy inline-flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>View Full FAQ</span>
+        </a>
+        <a href="/documents" class="btn-gold inline-flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>All Documents</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documents -->
+  <section class="py-20 bg-[oklch(0.96_0.01_245)]">
+    <div class="container">
+      <div class="mb-10">
+        <span class="section-label">Downloads</span>
+        <h2 class="font-['Syne'] font-800 text-3xl md:text-4xl text-[oklch(0.20_0.07_245)] mt-3">Document Repository</h2>
+        <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] mt-3 max-w-2xl">Download official CID documents, reports, and reference materials.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {documents.map((group: any) => (
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <h3 class="font-['Syne'] font-700 text-base text-[oklch(0.20_0.07_245)] mb-4">{group.category}</h3>
+            <ul class="space-y-3">
+              {group.files.map((file: any) => (
+                <li>
+                  <a href={file.url} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-[oklch(0.35_0.07_245)] hover:text-[oklch(0.50_0.15_245)] transition-colors group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 text-[#6CCFF6]"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span class="text-sm font-['Nunito_Sans'] group-hover:underline">{file.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA to FAQ -->
+  <section class="py-16 bg-[oklch(0.28_0.07_245)]">
+    <div class="container text-center text-white">
+      <h3 class="font-['Syne'] font-800 text-3xl mb-4">Have Questions?</h3>
+      <p class="text-white/70 mb-8 font-['Nunito_Sans']">Find answers to common questions about the CID and how it works.</p>
+      <a href="/faq" class="btn-gold inline-flex items-center gap-2">
+        <span>View FAQ</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

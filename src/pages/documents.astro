@@ -1,0 +1,72 @@
+---
+import Layout from '../layouts/Layout.astro';
+import documents from '../data/documents.json';
+const groups = documents;
+---
+<Layout title="Document Repository | Camps Bay CID" description="AGM documents, financial statements, policies, statutory documents, and more — all in one place.">
+  <!-- Hero -->
+  <section class="bg-[oklch(0.28_0.07_245)] pt-36 pb-16">
+    <div class="container text-white">
+      <span class="section-label">Downloads</span>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl mt-2">Document Repository</h1>
+      <p class="text-white/70 mt-4 max-w-xl font-['Nunito_Sans']">AGM documents, financial statements, policies, statutory documents, and more — all in one place.</p>
+    </div>
+  </section>
+
+  <!-- Documents -->
+  <section class="py-20 bg-[oklch(0.96_0.01_245)]">
+    <div class="container">
+      <p class="text-[oklch(0.45_0.04_245)] mb-12 font-['Nunito_Sans']">All documents will be published on this page as they become available.</p>
+
+      {groups.length === 0 ? (
+        <p class="text-center text-[oklch(0.55_0.04_245)] font-['Nunito_Sans'] py-16">No documents have been published yet. Check back soon.</p>
+      ) : (
+        <div class="space-y-10">
+          {groups.map((group: any) => (
+            <div class="fade-in-up">
+              <h3 class="font-['Syne'] font-700 text-[oklch(0.28_0.07_245)] text-base uppercase tracking-wide mb-1 flex items-center gap-3">
+                <span class="w-8 h-0.5 bg-[#6CCFF6] inline-block"></span>
+                {group.title}
+              </h3>
+              {group.note && (
+                <p class="text-[oklch(0.55_0.04_245)] text-sm font-['Nunito_Sans'] mb-3 ml-11">{group.note}</p>
+              )}
+              {group.files && group.files.length > 0 && (
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-4">
+                  {group.files.map((file: any) => (
+                    <a href={file.fileUrl} target="_blank" rel="noopener noreferrer"
+                      class="flex items-center gap-3 bg-white rounded-lg px-4 py-3 shadow-sm hover:shadow-md transition-all hover:bg-[oklch(0.97_0.01_245)] group">
+                      <div class="w-9 h-9 rounded-md bg-[oklch(0.28_0.07_245)] flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6CCFF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                      </div>
+                      <span class="font-['Nunito_Sans'] text-sm text-[oklch(0.30_0.05_245)] leading-snug flex-1">{file.label}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[oklch(0.65_0.04_245)] flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+
+      <p class="text-center text-[oklch(0.45_0.04_245)] text-sm font-['Nunito_Sans'] mt-12">
+        Can't find what you're looking for? <a href="/contact" class="text-[oklch(0.28_0.07_245)] hover:text-[#6CCFF6] font-600 transition-colors">Contact us</a> and we'll help.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[oklch(0.28_0.07_245)]">
+    <div class="container text-center text-white">
+      <div class="fade-in-up">
+        <h3 class="font-['Syne'] font-800 text-3xl mb-4">Still Have Questions?</h3>
+        <p class="text-white/70 mb-8 font-['Nunito_Sans']">Our team is happy to help. Get in touch with us directly.</p>
+        <a href="/contact" class="btn-gold inline-flex items-center gap-2">
+          <span>Contact Us</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

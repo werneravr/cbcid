@@ -1,0 +1,488 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CDN, PHOTOS } from '../lib/cdn';
+
+const ABOUT_IMG = `${CDN}/campsbay_sunset_pink_7994fcd2.jpg`;
+
+const directors = [
+  { name: "Spencer McNally", role: "Chairperson", email: "spencer@campsbaycid.org", photo: PHOTOS.spencer, slug: "spencer-mcnally" },
+  { name: "Louise Cooke", role: "Deputy Chairperson", email: "louise@campsbaycid.org", photo: PHOTOS.louise, slug: "louise-cooke" },
+  { name: "Richard Bendel", role: "Treasurer", email: "richard@campsbaycid.org", photo: PHOTOS.richard, slug: "richard-bendel" },
+  { name: "Gavin Reynolds", role: "Director", email: "gavin@campsbaycid.org", photo: PHOTOS.gavin, slug: "gavin-reynolds" },
+  { name: "Jonathan Tillett", role: "Director", email: "jonathan@campsbaycid.org", photo: PHOTOS.jonathan, slug: "jonathan-tillett" },
+  { name: "Martin Steinau", role: "Director", email: "martin@campsbaycid.org", photo: PHOTOS.martin, slug: "martin-steinau" },
+  { name: "Simone Lilienfeld", role: "Director", email: "simone@campsbaycid.org", photo: PHOTOS.simone, slug: "simone-lilienfeld" },
+];
+
+const management = [
+  { name: "Muneeb (Mo) Hendricks", role: "CID Manager", email: "mo@campsbaycid.org", mobile: "084 861 1955", office: "087 222 9800", photo: PHOTOS.mo, slug: "muneeb-mo-hendricks" },
+  { name: "Kyle Visagie", role: "Operations Manager", email: "kyle@campsbaycid.org", mobile: "082 449 4932", photo: PHOTOS.kyle, slug: "kyle-visagie" },
+  { name: "Jay Mboniso", role: "CID Operations Co-Ordinator", email: "jay@campsbaycid.org", mobile: "081 364 8114", photo: PHOTOS.jay },
+  { name: "Alfonzo Andries", role: "Assistant Public Safety Manager – Operations", email: "alfonzo@campsbaycid.org", mobile: "068 453 9009", photo: PHOTOS.alfonzo },
+  { name: "Bjorn Train", role: "Assistant Public Safety Manager – Technical Services", email: "bjorn@campsbaycid.org", mobile: "077 449 7391", photo: PHOTOS.bjorn },
+  { name: "Sarah Meder", role: "Communications, Volunteer & Administrative Manager", email: "sarah@campsbaycid.org", mobile: "076 100 8544", photo: PHOTOS.sarah, slug: "sarah-meder" },
+];
+
+const cidAreas = [
+  { icon: "🛡️", title: "Safety & Security", desc: "Safety & security is normally the main priority that takes up about 50%–60% of the focus and budget." },
+  { icon: "🌿", title: "Cleaning Services", desc: "Cleanliness of this area can be improved by various means to enhance the aesthetics." },
+  { icon: "🔧", title: "Maintenance of Infrastructure", desc: "The maintenance of existing infrastructure like roadside curbs, road markings and parks." },
+  { icon: "📍", title: "Upgrading of the Environment", desc: "Improving the aesthetics of Camps Bay, removing alien vegetation, etc." },
+  { icon: "❤️", title: "Social Upliftment", desc: "Dealing with the homeless and vagrant situation in Camps Bay whilst creating job opportunities." },
+  { icon: "💬", title: "Communication", desc: "Communication with the community is key. The CID will be informing residents of security events, road closures, liquor license applications, etc." },
+];
+
+const differentiators = [
+  { title: "Board of Directors", desc: "The board members are all very active in the community already and have all lived here 5–20 years." },
+  { title: "Team Work", desc: "Camps Bay is unique because all relevant role players already work closely with each other: SAPS, Law Enforcement, Community Police Forum, Neighbourhood Watch, Ratepayers Association, Ignisive, Business Forum, and more." },
+  { title: "Implementation", desc: "Funding was raised to employ people to run the implementation professionally. No reliance on volunteer work which is usually part-time and ad hoc." },
+  { title: "Experience", desc: "All people involved are experienced in their field with years of service." },
+];
+
+// Photo lookup map for subcommittee members
+const photoMap: Record<string, string> = {
+  "Spencer McNally": PHOTOS.spencer,
+  "Louise Cooke": PHOTOS.louise,
+  "Richard Bendel": PHOTOS.richard,
+  "Gavin Reynolds": PHOTOS.gavin,
+  "Jonathan Tillett": PHOTOS.jonathan,
+  "Martin Steinau": PHOTOS.martin,
+  "Simone Lilienfeld": PHOTOS.simone,
+  "Muneeb (Mo) Hendricks": PHOTOS.mo,
+  "Sarah Meder": PHOTOS.sarah,
+  "Kyle Visagie": PHOTOS.kyle,
+  "Ian Merrington": PHOTOS['ian-merrington'],
+  "Carlo Klopper": PHOTOS['carlo-klopper'],
+  "Ross Goodall": PHOTOS['ross-goodall'],
+  "Johan van Papendorp": PHOTOS['johan-van-papendorp'],
+  "Marc Sternberg": PHOTOS['marc-sternberg'],
+  "Chris Loker": PHOTOS['chris-loker'],
+  "Theresa Massaglia": PHOTOS['theresa-massaglia'],
+  "Heike Brunner": PHOTOS['heike-brunner'],
+  "Jeremy Droyman": PHOTOS['jeremy-droyman'],
+  "Hitesh Patel": PHOTOS['hitesh-patel'],
+  "Leonard Sank": PHOTOS['leonard-sank'],
+  "Ian Morris": PHOTOS['ian-morris'],
+  "Megan Mackensie": PHOTOS['megan-mackensie'],
+};
+
+const slugMap: Record<string, string> = {
+  "Spencer McNally": "spencer-mcnally",
+  "Louise Cooke": "louise-cooke",
+  "Richard Bendel": "richard-bendel",
+  "Gavin Reynolds": "gavin-reynolds",
+  "Jonathan Tillett": "jonathan-tillett",
+  "Martin Steinau": "martin-steinau",
+  "Simone Lilienfeld": "simone-lilienfeld",
+  "Muneeb (Mo) Hendricks": "muneeb-mo-hendricks",
+  "Sarah Meder": "sarah-meder",
+  "Kyle Visagie": "kyle-visagie",
+  "Ian Merrington": "ian-merrington",
+  "Carlo Klopper": "carlo-klopper",
+  "Ross Goodall": "ross-goodall",
+  "Johan van Papendorp": "johan-van-papendorp",
+  "Megan Mackensie": "megan-mackenzie",
+  "Marc Sternberg": "marc-sternberg",
+  "Chris Loker": "chris-loker",
+  "Theresa Massaglia": "theresa-massaglia",
+  "Heike Brunner": "heike-brunner",
+  "Jeremy Droyman": "jeremy-droyman",
+  "Hitesh Patel": "hitesh-patel",
+  "Leonard Sank": "leonard-sank",
+  "Ian Morris": "ian-morris",
+};
+
+const subcommittees = [
+  {
+    title: "Public Safety & Technology",
+    desc: "The Sub-Committee assists in the oversight of all aspects of the CID's public safety operations and related services, including the suburb-wide monitored camera project, radio network, control room activities and technology solutions.",
+    members: [
+      { name: "Louise Cooke", role: "Chair" },
+      { name: "Gavin Reynolds", role: "Director" },
+      { name: "Jonathan Tillett", role: "Director" },
+      { name: "Martin Steinau", role: "Director" },
+      { name: "Sarah Meder", role: "Management" },
+      { name: "Muneeb (Mo) Hendricks", role: "Management" },
+      { name: "Ian Merrington", role: "Independent" },
+      { name: "Carlo Klopper", role: "Independent" },
+      { name: "Ross Goodall", role: "Independent" },
+    ],
+  },
+  {
+    title: "Cleaning, Landscaping & Urban Maintenance",
+    desc: "The Sub-Committee assists in the oversight of cleansing, recycling and maintenance programmes, and in the development and monitoring of the urban upgrading and landscaping programme.",
+    members: [
+      { name: "Spencer McNally", role: "Chair" },
+      { name: "Martin Steinau", role: "Director" },
+      { name: "Simone Lilienfeld", role: "Director" },
+      { name: "Johan van Papendorp", role: "Independent" },
+      { name: "Megan Mackensie", role: "Independent" },
+      { name: "Marc Sternberg", role: "Independent" },
+      { name: "Chris Loker", role: "Independent" },
+      { name: "Sarah Meder", role: "Management" },
+      { name: "Muneeb (Mo) Hendricks", role: "Management" },
+      { name: "Kyle Visagie", role: "Management" },
+    ],
+  },
+  {
+    title: "Social Development",
+    desc: "The Sub-Committee assists in the oversight of the CID's social development programmes, including the integration of the social development programme across the CID's other functions (public safety, urban maintenance and environmental).",
+    members: [
+      { name: "Louise Cooke", role: "Chair" },
+      { name: "Theresa Massaglia", role: "Ignisive" },
+      { name: "Heike Brunner", role: "Independent" },
+      { name: "Muneeb (Mo) Hendricks", role: "Management" },
+      { name: "Kyle Visagie", role: "Management" },
+      { name: "Sarah Meder", role: "Management" },
+    ],
+  },
+  {
+    title: "Finance, Audit, Governance & HR",
+    desc: "The Subcommittee engages in regular reviews of the CID's finances, liaises with independent auditors, advises the management team on staff and HR issues, provides guidance on budgeting and compliance with City of Cape Town requirements, and assists in the oversight of corporate governance controls.",
+    members: [
+      { name: "Richard Bendel", role: "Chair" },
+      { name: "Gavin Reynolds", role: "Director" },
+      { name: "Jeremy Droyman", role: "Independent" },
+      { name: "Hitesh Patel", role: "Independent" },
+      { name: "Leonard Sank", role: "Independent" },
+      { name: "Ian Morris", role: "Independent" },
+      { name: "Muneeb (Mo) Hendricks", role: "Management" },
+      { name: "Sarah Meder", role: "Management" },
+    ],
+  },
+  {
+    title: "Marketing, Communications, Volunteers & Community",
+    desc: "The Sub-Committee assists in the oversight of marketing, communications, volunteer engagement and community relations.",
+    members: [
+      { name: "Jonathan Tillett", role: "Chair" },
+      { name: "Martin Steinau", role: "Director" },
+      { name: "Simone Lilienfeld", role: "Director" },
+      { name: "Heike Brunner", role: "Independent" },
+      { name: "Muneeb (Mo) Hendricks", role: "Management" },
+      { name: "Sarah Meder", role: "Management" },
+    ],
+  },
+];
+
+function getInitials(name: string) {
+  return name.split(' ').map(n => n[0]).filter(c => /[A-Za-z]/.test(c)).slice(0, 2).join('').toUpperCase();
+}
+---
+
+<Layout title="About the CID" description="Learn about the Camps Bay City Improvement District — who we are, what we do, and how we're making Camps Bay safer, cleaner, and better.">
+
+  <!-- Hero -->
+  <section class="relative h-72 md:h-96 flex items-end overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url(${ABOUT_IMG});`} />
+    <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/90 via-[oklch(0.20_0.07_245)]/40 to-transparent" />
+    <div class="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pb-12 text-white">
+      <span class="section-label">Who We Are</span>
+      <h1 class="font-['Syne'] font-extrabold text-4xl md:text-6xl mt-2">About the CID</h1>
+    </div>
+  </section>
+
+  <!-- In-page nav -->
+  <nav class="bg-[oklch(0.96_0.01_245)] border-b border-[oklch(0.90_0.01_245)] sticky top-[72px] z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-0 overflow-x-auto">
+        {[
+          { href: "#what-is-a-cid", label: "What is a CID?" },
+          { href: "#why-camps-bay", label: "Why Camps Bay?" },
+          { href: "#what-makes-us-different", label: "What Makes Us Different" },
+          { href: "#team", label: "Management Team" },
+          { href: "#board", label: "Board of Directors" },
+          { href: "#subcommittees", label: "Subcommittees" },
+        ].map(item => (
+          <a href={item.href} class="font-['Syne'] font-semibold text-xs uppercase tracking-wider text-[oklch(0.45_0.04_245)] hover:text-[oklch(0.28_0.07_245)] px-4 py-4 whitespace-nowrap border-b-2 border-transparent hover:border-[#6CCFF6] transition-all">
+            {item.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </nav>
+
+  <!-- What is a CID -->
+  <section id="what-is-a-cid" class="py-20 bg-[oklch(0.99_0.005_85)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="fade-in-up">
+          <span class="section-label">Our Foundation</span>
+          <h2 class="font-['Syne'] font-extrabold text-3xl md:text-4xl text-[oklch(0.20_0.07_245)] mt-3 mb-6 leading-tight">What is a City Improvement District?</h2>
+          <p class="text-[oklch(0.40_0.04_245)] leading-relaxed mb-5 font-['Nunito_Sans']">A City Improvement District (CID) is a clearly defined geographical area in which property owners pay additional property rates to fund supplementary municipal services to improve or upgrade that specific area.</p>
+          <p class="text-[oklch(0.40_0.04_245)] leading-relaxed mb-5 font-['Nunito_Sans']">CIDs can be commercial, industrial, residential or a combination of any of these and are known as Improvement Districts, City Improvement Districts, Business Improvement Districts, or Community Improvement Districts.</p>
+          <p class="text-[oklch(0.40_0.04_245)] leading-relaxed mb-5 font-['Nunito_Sans']">The Camps Bay CID was established in 2024 (registered as NPC 2024/265642/08) in response to a noticeable decline in safety and security, and a steady increase in vagrants and criminal elements around the beachfront.</p>
+          <div class="mt-4">
+            <p class="font-['Syne'] font-bold text-sm uppercase tracking-widest text-[oklch(0.45_0.04_245)] mb-3">Supplementary services typically include:</p>
+            <ul class="space-y-2">
+              {["Additional public safety", "Cleaning services", "Urban maintenance", "Upgrading of the environment", "Social upliftment"].map(s => (
+                <li class="flex items-center gap-2 text-[oklch(0.40_0.04_245)] font-['Nunito_Sans'] text-sm">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#6CCFF6] flex-shrink-0" />
+                  {s}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 gap-5">
+          {[
+            { title: "Safety First", desc: "Supplementary public safety patrols working alongside SAPS and Law Enforcement." },
+            { title: "Accountable to You", desc: "Governed by the Municipal Property Rates Act, with full financial transparency and member oversight." },
+            { title: "Community Driven", desc: "Property owners vote on the budget and elect directors from the community." },
+          ].map(item => (
+            <div class="fade-in-up flex gap-4 bg-[oklch(0.96_0.01_245)] rounded-xl p-5">
+              <div class="w-12 h-12 rounded-full bg-[#6CCFF6] flex items-center justify-center flex-shrink-0 text-[oklch(0.20_0.07_245)] text-xl">🛡️</div>
+              <div>
+                <h4 class="font-['Syne'] font-bold text-[oklch(0.20_0.07_245)] mb-1">{item.title}</h4>
+                <p class="text-[oklch(0.45_0.04_245)] text-sm font-['Nunito_Sans'] leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 Key Areas -->
+  <section class="py-20 bg-[oklch(0.28_0.07_245)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-in-up">
+        <span class="section-label">Our Focus</span>
+        <h2 class="font-['Syne'] font-extrabold text-3xl md:text-4xl text-white mt-3">A CID Focuses on 6 Key Areas</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {cidAreas.map((area, i) => (
+          <div class="fade-in-up bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/15 transition-colors text-center">
+            <div class="w-10 h-10 rounded-full bg-[#6CCFF6] flex items-center justify-center mb-4 mx-auto text-[oklch(0.20_0.07_245)] text-lg">{area.icon}</div>
+            <div class="font-['Syne'] font-extrabold text-3xl text-white/20 leading-none mb-2">{String(i + 1).padStart(2, '0')}</div>
+            <h3 class="font-['Syne'] font-bold text-white mb-2">{area.title}</h3>
+            <p class="text-white/70 text-sm font-['Nunito_Sans'] leading-relaxed">{area.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Camps Bay -->
+  <section id="why-camps-bay" class="py-20 bg-[oklch(0.99_0.005_85)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto">
+        <div class="fade-in-up text-center mb-12">
+          <span class="section-label">Our Story</span>
+          <h2 class="font-['Syne'] font-extrabold text-3xl md:text-4xl text-[oklch(0.20_0.07_245)] mt-3">Why in Camps Bay?</h2>
+        </div>
+        <div class="fade-in-up space-y-5 font-['Nunito_Sans'] text-[oklch(0.40_0.04_245)] leading-relaxed">
+          <p>A long-term deterioration in the standard of municipal services provided to Camps Bay, together with a number of public safety incidents, motivated members of the community to investigate whether a City Improvement District (CID) should be established in Camps Bay, and in accordance with City of Cape Town requirements, a Board of Directors was established.</p>
+          <p>The CID includes the beachfront and village, the Glen and Roundhouse, Rontree 1 and 2, Bakoven and the open land alongside. Camps Bay High School, Glen Country Club and Maidens Cove and adjacent open spaces, and Glen Beach bungalows are all excluded because they have already been included in the Clifton CID.</p>
+          <p>The members of the CID Board of Directors are residents of Camps Bay with a track record of community service, drawn from many of the community organisations that work for Camps Bay. Members of the CID Board of Directors receive no compensation and have no special influence over decisions made for funding priorities.</p>
+          <p>There are currently more than 60 CIDs successfully operating within the City of Cape Town, with the closest ones to us being Llandudno and Sea Point, and Clifton.</p>
+          <p class="font-bold text-[oklch(0.20_0.07_245)]">We hope you will support us in this journey.</p>
+          <p class="text-sm">— <strong>Camps Bay CID Board of Directors</strong> | <a href="mailto:connect@campsbaycid.org" class="text-[oklch(0.28_0.07_245)] hover:text-[#6CCFF6] transition-colors">connect@campsbaycid.org</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Need to Know -->
+  <section id="need-to-know" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-in-up">
+        <span class="section-label">Need to Know</span>
+        <h2 class="font-['Syne'] font-extrabold text-3xl md:text-4xl text-[oklch(0.20_0.07_245)] mt-3">What Does the CID Do?</h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="fade-in-up bg-[oklch(0.96_0.01_245)] rounded-2xl p-8 shadow-sm">
+          <h3 class="font-['Syne'] font-extrabold text-xl text-[oklch(0.20_0.07_245)] mb-6">What the CID Does</h3>
+          <ul class="space-y-3 font-['Nunito_Sans'] text-[oklch(0.40_0.04_245)] text-sm leading-relaxed">
+            {[
+              "24/7 security patrols using foot patrol officers, tactical vehicles and Law Enforcement officers with powers to arrest and fine",
+              "24/7 control room for reporting anything: crime, suspicious activity, municipal issues",
+              "Installs and monitors thermal AI and Licence Plate Recognition cameras in strategic locations throughout Camps Bay",
+              "Assists SAPS in investigating crimes",
+              "Provides support for victims of serious crime",
+              "Dedicated professional cleaning teams deployed throughout Camps Bay",
+              "Professional Urban Maintenance teams fix basic infrastructure (e.g. pot holes, drains, clearing vegetation)",
+              "Environmental upgrading projects including beachfront, greenbelt areas, and rehabilitation of disused paths",
+              "Social development teams assist with shelter placements, family reunifications for the homeless, and skills development programmes",
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 w-2 h-2 rounded-full bg-[#6CCFF6] flex-shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="fade-in-up bg-[oklch(0.20_0.07_245)] rounded-2xl p-8 shadow-sm">
+          <h3 class="font-['Syne'] font-extrabold text-xl text-white mb-6">What the CID Does NOT Do</h3>
+          <ul class="space-y-3 font-['Nunito_Sans'] text-white/75 text-sm leading-relaxed">
+            {[
+              "Operate on private property (refer to armed response companies such as PPA, Bay Response and FADT)",
+              "Undertake large maintenance projects such as road re-surfacing, tree removal etc (refer to the City of Cape Town)",
+              "Get involved in property disputes including planning regulations (refer to Camps Bay and Clifton Ratepayers Association — cbcra.co.za)",
+              "Deal with moving traffic violations such as speeding vehicles (refer to City of Cape Town Traffic department)",
+              "Act as a substitute for City of Cape Town municipal services",
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <span class="mt-1.5 w-2 h-2 rounded-full bg-[#6CCFF6] flex-shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="mt-6 pt-6 border-t border-white/20 font-['Nunito_Sans'] text-white/90 text-sm leading-relaxed italic">The Camps Bay CID tops up municipal services, provides additional resources and works closely with the City to ensure property owners extract maximum value from both their municipal rates and CID levy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes Us Different -->
+  <section id="what-makes-us-different" class="py-20 bg-[oklch(0.96_0.01_245)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-in-up">
+        <span class="section-label">Our Advantage</span>
+        <h2 class="font-['Syne'] font-extrabold text-3xl md:text-4xl text-[oklch(0.20_0.07_245)] mt-3">What Makes Us Different?</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {differentiators.map(d => (
+          <div class="fade-in-up bg-white rounded-2xl p-7 shadow-sm hover:shadow-md transition-shadow">
+            <h3 class="font-['Syne'] font-extrabold text-xl text-[oklch(0.20_0.07_245)] mb-3">{d.title}</h3>
+            <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] leading-relaxed text-sm">{d.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Management Team -->
+  <section id="team" class="py-20 bg-[oklch(0.96_0.01_245)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-in-up">
+        <span class="section-label">Our Team</span>
+        <h2 class="font-['Syne'] font-extrabold text-3xl md:text-4xl text-[oklch(0.20_0.07_245)] mt-3">Management Team</h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        {management.map(m => (
+          <div class="fade-in-up bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-shadow">
+            <img src={m.photo} alt={m.name} class="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-[#6CCFF6]" loading="lazy" />
+            <h4 class="font-['Syne'] font-bold text-sm text-[oklch(0.20_0.07_245)] mb-1">{m.name}</h4>
+            <p class="text-[#3083DC] text-xs font-['Nunito_Sans'] font-semibold mb-2">{m.role}</p>
+            <a href={`mailto:${m.email}`} class="text-[oklch(0.45_0.04_245)] text-xs hover:text-[#6CCFF6] transition-colors font-['Nunito_Sans'] break-all block">{m.email}</a>
+            {m.mobile && <a href={`tel:${m.mobile.replace(/\s/g, '')}`} class="text-[oklch(0.45_0.04_245)] text-xs font-['Nunito_Sans'] block">{m.mobile}</a>}
+            {m.slug && (
+              <a href={`/about/people/${m.slug}`} class="inline-block mt-2 text-xs font-['Syne'] font-bold text-[oklch(0.28_0.07_245)] hover:text-[#6CCFF6] transition-colors border border-[oklch(0.80_0.01_245)] hover:border-[#6CCFF6] rounded-lg px-3 py-1.5">About</a>
+            )}
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-[oklch(0.50_0.04_245)] font-['Nunito_Sans'] text-sm mt-6 max-w-2xl mx-auto">The Management Team are paid employees of the CID.</p>
+    </div>
+  </section>
+
+  <!-- Board of Directors -->
+  <section id="board" class="py-20 bg-[oklch(0.99_0.005_85)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-in-up">
+        <span class="section-label">Governance</span>
+        <h2 class="font-['Syne'] font-extrabold text-3xl md:text-4xl text-[oklch(0.20_0.07_245)] mt-3">Board of Directors</h2>
+        <p class="text-[oklch(0.45_0.04_245)] mt-3 max-w-xl mx-auto font-['Nunito_Sans']">Camps Bay City Improvement District NPC (2024/265642/08)</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+        {directors.map(d => (
+          <div class="fade-in-up bg-[oklch(0.96_0.01_245)] rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-shadow">
+            <img src={d.photo} alt={d.name} class="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-[#6CCFF6]" loading="lazy" />
+            <h4 class="font-['Syne'] font-bold text-sm text-[oklch(0.20_0.07_245)] mb-1">{d.name}</h4>
+            <p class="text-[#3083DC] text-xs font-['Nunito_Sans'] font-semibold mb-2">{d.role}</p>
+            <a href={`mailto:${d.email}`} class="text-[oklch(0.45_0.04_245)] text-xs hover:text-[#6CCFF6] transition-colors font-['Nunito_Sans'] break-all block mb-2">{d.email}</a>
+            {d.slug && (
+              <a href={`/about/people/${d.slug}`} class="inline-block text-xs font-['Syne'] font-bold text-[oklch(0.28_0.07_245)] hover:text-[#6CCFF6] transition-colors border border-[oklch(0.80_0.01_245)] hover:border-[#6CCFF6] rounded-lg px-3 py-1.5">About</a>
+            )}
+          </div>
+        ))}
+      </div>
+      <div class="mt-8 max-w-3xl mx-auto space-y-4 text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] text-sm leading-relaxed">
+        <p>The Board of Directors are elected by the community at the CID's AGM. The functions of Board include providing oversight for the operations of the CID, including the appointment of the professional Management Team.</p>
+        <p>In terms of the CID's Memorandum of Incorporation, the Board may co-opt additional directors by resolution of the Board until the following AGM, whereupon any co-opted directors shall either stand down or stand for election.</p>
+        <p>Directors perform their duties in a volunteer capacity and are unpaid.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subcommittees -->
+  <section id="subcommittees" class="py-20 bg-[oklch(0.96_0.01_245)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 fade-in-up">
+        <span class="section-label">Governance</span>
+        <h2 class="font-['Syne'] font-extrabold text-3xl md:text-4xl text-[oklch(0.20_0.07_245)] mt-3">Subcommittees</h2>
+      </div>
+      <div class="max-w-3xl mx-auto mb-10 space-y-4 text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] text-sm leading-relaxed fade-in-up">
+        <p>Sub-Committees of the Board meet regularly to provide ongoing, formal processes to ensure the effective management of the CID, including the following functions:</p>
+        <ul class="space-y-2 list-disc list-inside">
+          <li>Oversight of the activities of the CID by its directors</li>
+          <li>Providing insight and advice from engaged, independent members of the community with relevant expertise and experience</li>
+          <li>Providing an opportunity for engagement and interaction between the CID directors and employees of the CID</li>
+          <li>Providing continuing development of strategic solutions in specific areas of the operations of the CID by relevant experts, directors and employees</li>
+          <li>Providing opportunities for the development of a pipeline of committed, capable future directors of the CID</li>
+        </ul>
+        <p>Independent Members of Sub-Committees act in volunteer capacity and are unpaid.</p>
+      </div>
+      {subcommittees.map(sub => (
+        <div class="fade-in-up mb-16 last:mb-0">
+          <h3 class="font-['Syne'] font-extrabold text-2xl md:text-3xl text-[oklch(0.20_0.07_245)] text-center mb-4">{sub.title}</h3>
+          <p class="text-center text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] text-sm leading-relaxed max-w-3xl mx-auto mb-8">{sub.desc}</p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 max-w-5xl mx-auto">
+            {sub.members.map(m => {
+              const photo = photoMap[m.name];
+              const slug = slugMap[m.name];
+              const initials = getInitials(m.name);
+              return (
+                <div class="bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-shadow">
+                  {photo ? (
+                    <img src={photo} alt={m.name} class="w-16 h-16 rounded-full object-cover mx-auto mb-3 border-2 border-[#6CCFF6]" loading="lazy" />
+                  ) : (
+                    <div class="w-16 h-16 rounded-full bg-[#6CCFF6]/20 border-2 border-[#6CCFF6] flex items-center justify-center mx-auto mb-3 font-['Syne'] font-bold text-[#6CCFF6] text-lg">{initials}</div>
+                  )}
+                  <h4 class="font-['Syne'] font-bold text-sm text-[oklch(0.20_0.07_245)] mb-1">{m.name}</h4>
+                  <p class="text-[#3083DC] text-xs font-['Nunito_Sans'] font-semibold mb-2">{m.role}</p>
+                  {slug && (
+                    <a href={`/about/people/${slug}`} class="inline-block text-xs font-['Syne'] font-bold text-[oklch(0.28_0.07_245)] hover:text-[#6CCFF6] transition-colors border border-[oklch(0.80_0.01_245)] hover:border-[#6CCFF6] rounded-lg px-3 py-1.5 mt-1">About</a>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[oklch(0.28_0.07_245)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <div class="fade-in-up">
+        <h3 class="font-['Syne'] font-extrabold text-3xl mb-4">Have Questions?</h3>
+        <p class="text-white/70 mb-8 font-['Nunito_Sans']">Visit our FAQ page or get in touch with our team directly.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/faq" class="btn-gold"><span>View FAQ</span></a>
+          <a href="/contact" class="btn-navy"><span>Contact Us</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Smooth scroll to anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      const href = (anchor as HTMLAnchorElement).getAttribute('href');
+      if (href) {
+        const el = document.querySelector(href);
+        if (el) {
+          const offset = 130;
+          const top = el.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>

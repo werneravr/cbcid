@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG';
+const HERO_IMG = `${CDN}/campsbay_beach_sunrise_e5f6a7b8.jpg`;
+---
+<Layout title="Beachfront Upgrade | Camps Bay CID" description="The Camps Bay CID's beachfront upgrade project enhances the iconic Camps Bay beachfront for residents and visitors.">
+  <!-- Hero -->
+  <section class="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image:url(${HERO_IMG})`}></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/90 via-[oklch(0.20_0.07_245)]/30 to-transparent"></div>
+    <div class="relative z-10 container pb-10 md:pb-14 text-white">
+      <a href="/projects" class="inline-flex items-center gap-1 text-[#6CCFF6] text-sm font-['Nunito_Sans'] mb-4 hover:opacity-80 transition-opacity">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Our Projects
+      </a>
+      <div class="section-label mb-3">Project</div>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl leading-tight">
+        Beachfront <span class="text-[#6CCFF6]">Upgrade</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-4xl">
+      <p class="text-[oklch(0.35_0.05_245)] text-xl leading-relaxed font-['Nunito_Sans'] mb-8">
+        The Camps Bay beachfront is one of Cape Town's most iconic destinations. The CID is working to enhance the beachfront experience for residents and visitors through a comprehensive upgrade programme.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {[
+          { title: "CID Cleaning Unit HQ", desc: "A dedicated base for the CID's cleaning and urban maintenance teams, improving operational efficiency." },
+          { title: "Law Enforcement Building", desc: "A purpose-built facility for the CID's dedicated Law Enforcement Officers, improving response times." },
+          { title: "SAPS Station", desc: "Working with SAPS to improve the Camps Bay police station facilities and resources." },
+        ].map((item) => (
+          <div class="bg-[oklch(0.97_0.01_245)] rounded-2xl p-8 shadow-sm">
+            <h3 class="font-['Syne'] font-800 text-lg text-[oklch(0.20_0.07_245)] mb-3">{item.title}</h3>
+            <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[oklch(0.28_0.07_245)]">
+    <div class="container text-center text-white">
+      <h3 class="font-['Syne'] font-800 text-3xl mb-4">See All Projects</h3>
+      <a href="/projects" class="btn-gold inline-flex items-center gap-2">
+        <span>All Projects</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

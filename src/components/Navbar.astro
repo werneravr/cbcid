@@ -1,0 +1,5 @@
+---
+import NavbarIsland from './NavbarIsland.tsx';
+const currentPath = Astro.url.pathname;
+---
+<NavbarIsland client:load currentPath={currentPath} />

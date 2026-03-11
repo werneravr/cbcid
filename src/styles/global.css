@@ -1,0 +1,160 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Nunito+Sans:wght@300;400;600;700&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    color: oklch(0.20 0.07 245);
+    background-color: white;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: oklch(0.75 0.15 70);
+    color: oklch(0.20 0.07 245);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-gold:hover {
+    background-color: oklch(0.80 0.15 70);
+  }
+
+  .btn-navy {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: oklch(0.28 0.07 245);
+    color: white;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .btn-navy:hover {
+    background-color: oklch(0.35 0.07 245);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid oklch(0.28 0.07 245);
+    color: oklch(0.28 0.07 245);
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.2s;
+    text-decoration: none;
+    background: transparent;
+  }
+  .btn-outline:hover {
+    background-color: oklch(0.28 0.07 245);
+    color: white;
+  }
+
+  .section-label {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: oklch(0.75 0.15 70);
+  }
+}
+
+@layer utilities {
+  /* Newsletter body typography */
+  .newsletter-body h1,
+  .newsletter-body h2,
+  .newsletter-body h3,
+  .newsletter-body h4 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: oklch(0.20 0.07 245);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .newsletter-body h2 { font-size: 1.4rem; }
+  .newsletter-body h3 { font-size: 1.15rem; }
+
+  .newsletter-body p {
+    margin-bottom: 1.25rem !important;
+    line-height: 1.75;
+    color: oklch(0.30 0.05 245);
+  }
+
+  .newsletter-body ul,
+  .newsletter-body ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .newsletter-body li {
+    margin-bottom: 0.4rem;
+    line-height: 1.7;
+  }
+
+  .newsletter-body img {
+    max-width: 100%;
+    border-radius: 0.75rem;
+    margin: 1.5rem 0;
+  }
+
+  .newsletter-body a {
+    color: oklch(0.28 0.07 245);
+    text-decoration: underline;
+  }
+
+  .newsletter-body strong {
+    font-weight: 700;
+    color: oklch(0.20 0.07 245);
+  }
+
+  .newsletter-body blockquote {
+    border-left: 4px solid oklch(0.75 0.15 70);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: oklch(0.40 0.06 245);
+    font-style: italic;
+  }
+}
+
+/* Ken Burns animation */
+@keyframes kenBurns {
+  from { transform: scale(1.05); }
+  to { transform: scale(1); }
+}
+
+.stat-number {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  color: white;
+  line-height: 1;
+}

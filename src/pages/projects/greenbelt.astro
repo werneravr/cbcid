@@ -1,0 +1,65 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG';
+const HERO_IMG = `${CDN}/greenbelt_panorama_6b78529d.jpg`;
+const INTRO_IMG = `${CDN}/greenbelt_intro_9cea5e66.jpg`;
+const MAP_IMG = `${CDN}/greenbelt-lg-ingleside-map_1924c23b.jpg`;
+---
+<Layout title="Greenbelt Rehabilitation | Camps Bay CID" description="The Camps Bay CID's greenbelt rehabilitation project protects and enhances the natural environment surrounding Camps Bay.">
+  <!-- Hero -->
+  <section class="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image:url(${HERO_IMG})`}></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/90 via-[oklch(0.20_0.07_245)]/30 to-transparent"></div>
+    <div class="relative z-10 container pb-10 md:pb-14 text-white">
+      <a href="/projects" class="inline-flex items-center gap-1 text-[#6CCFF6] text-sm font-['Nunito_Sans'] mb-4 hover:opacity-80 transition-opacity">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Our Projects
+      </a>
+      <div class="section-label mb-3">Project</div>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl leading-tight">
+        Greenbelt <span class="text-[#6CCFF6]">Rehabilitation</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 bg-white">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div class="fade-in-up">
+          <span class="section-label">Environmental</span>
+          <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mt-3 mb-5">Protecting Natural Heritage</h2>
+          <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] leading-relaxed mb-4">
+            The greenbelts surrounding Camps Bay are part of the Cape Floristic Region, one of the world's six floral kingdoms and a UNESCO World Heritage Site. The CID is committed to protecting and rehabilitating these precious natural areas.
+          </p>
+          <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] leading-relaxed mb-5">
+            Our alien vegetation removal programme targets invasive species that threaten indigenous fynbos, while our indigenous planting programme restores natural habitats. We also work to reduce fire risk and stabilise slopes.
+          </p>
+          <ul class="space-y-2">
+            {["Alien vegetation removal", "Indigenous fynbos restoration", "Fire risk reduction", "Slope stabilisation", "Trail maintenance and safety"].map((item) => (
+              <li class="flex items-center gap-3 text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] text-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#6CCFF6] flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="fade-in-up space-y-4">
+          <img src={INTRO_IMG} alt="Greenbelt rehabilitation" class="rounded-2xl w-full h-56 object-cover" />
+          <img src={MAP_IMG} alt="Greenbelt map" class="rounded-2xl w-full h-56 object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[oklch(0.28_0.07_245)]">
+    <div class="container text-center text-white">
+      <h3 class="font-['Syne'] font-800 text-3xl mb-4">See All Projects</h3>
+      <a href="/projects" class="btn-gold inline-flex items-center gap-2">
+        <span>All Projects</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

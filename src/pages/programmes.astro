@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG';
+const HERO_IMG = `${CDN}/campsbay_aerial_day_99ea3921.jpg`;
+const SAFETY_IMG = `${CDN}/banner-public-safety_26a8af18.jpg`;
+const CLEANING_IMG = `${CDN}/cleaning_team_group_222ec8e4.jpg`;
+const SOCIAL_IMG = `${CDN}/social_banner_862bb7c7.webp`;
+---
+<Layout title="Our Programmes | Camps Bay CID" description="The Camps Bay CID delivers three core programmes: Public Safety, Cleaning & Urban Management, and Social Development.">
+  <!-- HERO -->
+  <section class="relative flex items-end overflow-hidden pt-20 md:pt-[7.5rem]">
+    <div class="absolute inset-0 bg-[oklch(0.20_0.07_245)]"></div>
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image:url(${HERO_IMG})`}></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/90 via-[oklch(0.20_0.07_245)]/40 to-transparent"></div>
+    <div class="relative z-10 container pb-12 pt-32 md:pt-48">
+      <div class="section-label mb-3">What We Do</div>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl text-white leading-tight max-w-3xl">
+        Our<br /><span class="text-[#6CCFF6]">Programmes</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-3xl text-center">
+      <p class="text-[oklch(0.40_0.04_245)] text-lg leading-relaxed font-['Nunito_Sans']">
+        The Camps Bay CID delivers three core programmes that work together to create a safer, cleaner, and more inclusive community. Click on any programme below to learn more.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROGRAMME CARDS -->
+  <section class="pb-20 bg-white">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Public Safety -->
+        <a href="/programmes/public-safety" class="group block rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-[oklch(0.97_0.01_245)] fade-in-up">
+          <div class="relative h-52 overflow-hidden">
+            <img src={SAFETY_IMG} alt="Public Safety" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-[#6CCFF6] flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[oklch(0.20_0.07_245)]"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span class="font-['Syne'] font-800 text-white/60 text-sm">Programme 01</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h2 class="font-['Syne'] font-800 text-xl text-[oklch(0.20_0.07_245)] mb-3 leading-tight group-hover:text-[#6CCFF6] transition-colors">Public Safety</h2>
+            <p class="text-[oklch(0.45_0.04_245)] text-sm leading-relaxed font-['Nunito_Sans'] mb-5">24/7 patrols by dedicated CID Public Safety officers working alongside SAPS and Law Enforcement to keep Camps Bay safe.</p>
+            <div class="flex items-center gap-1 text-[oklch(0.28_0.07_245)] text-sm font-['Nunito_Sans'] font-600 group-hover:text-[#6CCFF6] transition-colors">
+              <span>Learn more</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Cleaning -->
+        <a href="/programmes/cleaning" class="group block rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-[oklch(0.97_0.01_245)] fade-in-up">
+          <div class="relative h-52 overflow-hidden">
+            <img src={CLEANING_IMG} alt="Cleaning & Urban Management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-[#6CCFF6] flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[oklch(0.20_0.07_245)]"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+              </div>
+              <span class="font-['Syne'] font-800 text-white/60 text-sm">Programme 02</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h2 class="font-['Syne'] font-800 text-xl text-[oklch(0.20_0.07_245)] mb-3 leading-tight group-hover:text-[#6CCFF6] transition-colors">Cleaning & Urban Management</h2>
+            <p class="text-[oklch(0.45_0.04_245)] text-sm leading-relaxed font-['Nunito_Sans'] mb-5">Over 2,700 bags of litter collected monthly. Our teams maintain the promenade, streets, and public spaces to the highest standard.</p>
+            <div class="flex items-center gap-1 text-[oklch(0.28_0.07_245)] text-sm font-['Nunito_Sans'] font-600 group-hover:text-[#6CCFF6] transition-colors">
+              <span>Learn more</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Social Development -->
+        <a href="/programmes/social-development" class="group block rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-[oklch(0.97_0.01_245)] fade-in-up">
+          <div class="relative h-52 overflow-hidden">
+            <img src={SOCIAL_IMG} alt="Social Development" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-[#6CCFF6] flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[oklch(0.20_0.07_245)]"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+              <span class="font-['Syne'] font-800 text-white/60 text-sm">Programme 03</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h2 class="font-['Syne'] font-800 text-xl text-[oklch(0.20_0.07_245)] mb-3 leading-tight group-hover:text-[#6CCFF6] transition-colors">Social Development</h2>
+            <p class="text-[oklch(0.45_0.04_245)] text-sm leading-relaxed font-['Nunito_Sans'] mb-5">35 people placed in permanent employment. We work with vulnerable community members to provide pathways to sustainable livelihoods.</p>
+            <div class="flex items-center gap-1 text-[oklch(0.28_0.07_245)] text-sm font-['Nunito_Sans'] font-600 group-hover:text-[#6CCFF6] transition-colors">
+              <span>Learn more</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[oklch(0.28_0.07_245)]">
+    <div class="container text-center text-white">
+      <div class="fade-in-up">
+        <h3 class="font-['Syne'] font-800 text-3xl mb-4">Report an Incident</h3>
+        <p class="text-white/70 mb-8 font-['Nunito_Sans']">See something suspicious? Contact our 24/7 control room immediately.</p>
+        <a href="tel:+27872232864" class="btn-gold inline-flex items-center gap-2">
+          <span>+27 87 223 2864</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

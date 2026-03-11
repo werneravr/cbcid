@@ -1,0 +1,330 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG';
+const HERO_IMG = `${CDN}/campsbay_aerial_day_99ea3921.jpg`;
+const ABOUT_IMG = `${CDN}/campsbay_sunset_pink_7994fcd2.jpg`;
+const SAFETY_IMG = `${CDN}/banner-public-safety_2475c623.jpg`;
+const CLEANING_IMG = `${CDN}/cleaning_team_group_222ec8e4.jpg`;
+const SOCIAL_IMG = `${CDN}/social_banner_862bb7c7.webp`;
+const BOUNDARY_MAP = `${CDN}/cbcid-boundary-map_70b846c4.webp`;
+
+const partners = [
+  { name: "Camps Bay Safety Initiative", logo: `${CDN}/partner-campsbay-safety-initiative_1773ac76.png` },
+  { name: "City of Cape Town", logo: `${CDN}/partner-city-of-cape-town_7da437a5.png` },
+  { name: "Ignisive", logo: `${CDN}/partner-ignisive_8d8db8af.png` },
+  { name: "Camps Bay Watch", logo: `${CDN}/partner-campsbay-watch_995a8355.jpg` },
+  { name: "CBCRA", logo: `${CDN}/partner-cbcra_b6670a1b.jpg` },
+  { name: "Community Police Forum", logo: `${CDN}/partner-community-police-forum_9930e92a.jpg` },
+];
+
+// Get latest 3 communications
+const allComms = await getCollection('communications', ({ data }) => data.published !== false);
+const latestComms = allComms
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
+
+const fallbackImgs = [ABOUT_IMG, CLEANING_IMG, SOCIAL_IMG];
+---
+
+<Layout title="Camps Bay City Improvement District" description="Working together to preserve and enhance the exceptional quality of life in one of Cape Town's most beloved coastal suburbs.">
+
+  <!-- HERO -->
+  <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style={`background-image: url(${HERO_IMG}); animation: kenBurns 20s ease-in-out infinite alternate;`}
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-[oklch(0.20_0.07_245)]/60 via-[oklch(0.20_0.07_245)]/30 to-[oklch(0.20_0.07_245)]/70" />
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+      <div class="section-label mb-4">Camps Bay City Improvement District</div>
+      <h1 class="font-['Syne'] font-extrabold text-5xl md:text-7xl leading-tight mb-6 max-w-4xl mx-auto">
+        Safer. Cleaner.<br />
+        <span class="text-[#6CCFF6]">Better Camps Bay.</span>
+      </h1>
+      <p class="text-white/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-['Nunito_Sans'] leading-relaxed">
+        Working together to preserve and enhance the exceptional quality of life in one of Cape Town's most beloved coastal suburbs.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/about" class="btn-gold">
+          <span>Discover Our Work</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+        <a href="tel:+27872232864" class="btn-navy">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.23h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.76-.76a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 17z"/></svg>
+          <span>Emergency Hotline</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 flex flex-col items-center gap-2 animate-bounce">
+      <span class="text-xs font-['Nunito_Sans'] tracking-widest uppercase">Scroll</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-20 bg-[oklch(0.99_0.005_85)]" style="clip-path: polygon(0 100%, 100% 100%, 100% 0);" />
+  </section>
+
+  <!-- STATS BAND -->
+  <section id="stats-band" class="bg-[oklch(0.28_0.07_245)] py-16 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="stat-number" data-target="2799" data-suffix="+">0+</div>
+          <div class="text-white/70 text-sm mt-1 font-['Nunito_Sans']">Litter Bags Collected Monthly</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-number" data-target="35" data-suffix="">0</div>
+          <div class="text-white/70 text-sm mt-1 font-['Nunito_Sans']">Formerly Homeless People in Permanent Employment</div>
+        </div>
+        <div class="text-center">
+          <div class="stat-number" data-target="2700" data-suffix="+">0+</div>
+          <div class="text-white/70 text-sm mt-1 font-['Nunito_Sans']">Properties Included</div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-10 bg-[oklch(0.99_0.005_85)]" style="clip-path: polygon(0 100%, 100% 100%, 100% 0);" />
+  </section>
+
+  <!-- ABOUT / OVERVIEW -->
+  <section class="py-24 bg-[oklch(0.99_0.005_85)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="relative fade-in-up">
+          <div id="youtube-container" class="relative w-full rounded-2xl overflow-hidden shadow-2xl" style="padding-bottom: 56.25%;">
+            <button id="youtube-play-btn" class="absolute inset-0 w-full h-full group" aria-label="Play video">
+              <img src={ABOUT_IMG} alt="Camps Bay aerial view" class="w-full h-full object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-br from-[oklch(0.20_0.07_245)]/80 via-[oklch(0.20_0.07_245)]/50 to-[oklch(0.20_0.07_245)]/30 group-hover:from-[oklch(0.20_0.07_245)]/70 transition-all duration-300" />
+              <div class="absolute top-4 left-4">
+                <span class="bg-[#6CCFF6] text-[oklch(0.20_0.07_245)] text-xs font-['Syne'] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Watch Our Story</span>
+              </div>
+              <div class="absolute inset-0 flex flex-col items-center justify-center gap-4">
+                <div class="w-20 h-20 rounded-full bg-[#6CCFF6] flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all duration-300">
+                  <svg viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9 text-[oklch(0.20_0.07_245)] ml-1"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <p class="text-white font-['Syne'] font-semibold text-sm tracking-wide opacity-90">Camps Bay CID — Our Story</p>
+              </div>
+            </button>
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-[#6CCFF6] text-[oklch(0.20_0.07_245)] p-5 rounded-xl shadow-xl max-w-[200px]">
+            <div class="font-['Syne'] font-extrabold text-3xl">2024</div>
+            <div class="font-['Nunito_Sans'] text-sm font-semibold mt-1">Year Established</div>
+          </div>
+        </div>
+        <div>
+          <div class="fade-in-up">
+            <span class="section-label">What is a CID?</span>
+            <h2 class="font-['Syne'] font-extrabold text-4xl md:text-5xl text-[oklch(0.20_0.07_245)] mt-3 mb-6 leading-tight">
+              A Community<br />Investing in Itself
+            </h2>
+          </div>
+          <div class="fade-in-up">
+            <p class="text-[oklch(0.40_0.04_245)] text-lg leading-relaxed mb-5 font-['Nunito_Sans']">
+              A City Improvement District (CID) is a defined geographical area where property owners pay supplementary rates to fund enhanced municipal services. The Camps Bay CID was established to address a noticeable decline in safety, cleanliness, and quality of life in our beloved suburb.
+            </p>
+            <p class="text-[oklch(0.40_0.04_245)] leading-relaxed mb-8 font-['Nunito_Sans']">
+              Working alongside the City of Cape Town, we provide top-up services — from 24/7 public safety patrols to daily cleaning operations and social development programmes — all funded by and accountable to Camps Bay property owners.
+            </p>
+            <a href="/about" class="btn-gold">
+              <span>Learn More About Us</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMMES -->
+  <section class="py-24 bg-[oklch(0.96_0.01_245)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16 fade-in-up">
+        <span class="section-label">What We Do</span>
+        <h2 class="font-['Syne'] font-extrabold text-4xl md:text-5xl text-[oklch(0.20_0.07_245)] mt-3 leading-tight">Our Programmes</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { title: "Public Safety", description: "Our dedicated CID Public Safety officers patrol the streets and beachfront 24/7, working alongside SAPS and Law Enforcement to keep Camps Bay safe.", img: SAFETY_IMG, href: "/programmes/public-safety" },
+          { title: "Cleaning & Urban Management", description: "Over 2,700 bags of litter collected monthly. Our cleaning teams maintain the promenade, streets, and public spaces to the highest standard.", img: CLEANING_IMG, href: "/programmes/cleaning" },
+          { title: "Social Development", description: "35 people placed in permanent employment. We work with vulnerable community members to provide pathways off the streets and into sustainable livelihoods.", img: SOCIAL_IMG, href: "/programmes/social-development" },
+        ].map((prog) => (
+          <a href={prog.href} class="fade-in-up bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow group block">
+            <div class="relative h-56 overflow-hidden">
+              <img src={prog.img} alt={prog.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/60 to-transparent" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-['Syne'] font-bold text-xl text-[oklch(0.20_0.07_245)] mb-3">{prog.title}</h3>
+              <p class="text-[oklch(0.45_0.04_245)] text-sm leading-relaxed font-['Nunito_Sans']">{prog.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="text-center mt-12 fade-in-up">
+        <a href="/programmes" class="btn-gold">
+          <span>View All Programmes</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA MAP -->
+  <section class="py-20 bg-[oklch(0.99_0.005_85)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 fade-in-up">
+        <span class="section-label">Our Boundary</span>
+        <h2 class="font-['Syne'] font-extrabold text-4xl md:text-5xl text-[oklch(0.20_0.07_245)] mt-3 leading-tight">Area Map</h2>
+        <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] mt-4 max-w-2xl mx-auto">
+          The Camps Bay CID covers the beachfront, all residential and commercial properties, and parts of the undeveloped and protected Table Mountain National Park. The boundary is shown in yellow below.
+        </p>
+      </div>
+      <div class="fade-in-up rounded-2xl overflow-hidden shadow-xl border border-[oklch(0.90_0.01_245)]">
+        <img src={BOUNDARY_MAP} alt="Camps Bay CID boundary map" class="w-full h-auto block" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST COMMUNICATIONS -->
+  <section class="py-24 bg-[oklch(0.99_0.005_85)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-12">
+        <div class="fade-in-up">
+          <span class="section-label">Stay Informed</span>
+          <h2 class="font-['Syne'] font-extrabold text-4xl md:text-5xl text-[oklch(0.20_0.07_245)] mt-3 leading-tight">Latest Communications</h2>
+        </div>
+        <div class="fade-in-up hidden sm:block">
+          <a href="/communications" class="btn-navy text-sm py-2.5 px-5">
+            <span>All Communications</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      {latestComms.length === 0 ? (
+        <div class="text-center py-16 text-[oklch(0.55_0.04_245)] font-['Nunito_Sans']">No communications published yet.</div>
+      ) : (
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div class="lg:col-span-2">
+            <a href={`/communications/${latestComms[0].slug}`} class="block relative h-72 lg:h-96 rounded-2xl overflow-hidden group">
+              <img src={latestComms[0].data.coverImage || fallbackImgs[0]} alt={latestComms[0].data.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/90 via-[oklch(0.20_0.07_245)]/30 to-transparent" />
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <span class="inline-block bg-[#6CCFF6] text-[oklch(0.20_0.07_245)] text-xs font-['Syne'] font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wide">{latestComms[0].data.category}</span>
+                <h3 class="font-['Syne'] font-bold text-2xl mb-2">{latestComms[0].data.title}</h3>
+                <p class="text-white/80 text-sm font-['Nunito_Sans'] leading-relaxed mb-4 line-clamp-2">{latestComms[0].data.summary}</p>
+                <div class="flex items-center justify-between">
+                  <span class="text-white/60 text-xs">{latestComms[0].data.date}</span>
+                  <span class="inline-flex items-center gap-1.5 text-[#6CCFF6] text-sm font-['Syne'] font-bold">Read More <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="flex flex-col gap-5">
+            {latestComms.slice(1).map((item, idx) => (
+              <a href={`/communications/${item.slug}`} class="flex gap-4 bg-[oklch(0.96_0.01_245)] rounded-xl p-4 hover:shadow-md transition-shadow">
+                <img src={item.data.coverImage || fallbackImgs[idx + 1] || fallbackImgs[0]} alt={item.data.title} class="w-20 h-20 object-cover rounded-lg flex-shrink-0" />
+                <div>
+                  <span class="text-[#6CCFF6] text-xs font-['Syne'] font-bold uppercase tracking-wide">{item.data.category}</span>
+                  <h4 class="font-['Syne'] font-bold text-sm text-[oklch(0.20_0.07_245)] mt-1 mb-1 leading-snug">{item.data.title}</h4>
+                  <span class="text-[oklch(0.55_0.04_245)] text-xs font-['Nunito_Sans']">{item.data.date}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP CTA -->
+  <section class="py-24 bg-[oklch(0.20_0.07_245)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="fade-in-up max-w-2xl mx-auto text-center text-white">
+        <div class="flex justify-center mb-6">
+          <div class="w-16 h-16 rounded-full bg-[#6CCFF6]/20 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#6CCFF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+        </div>
+        <span class="section-label">Join Us</span>
+        <h2 class="font-['Syne'] font-extrabold text-4xl md:text-5xl mt-3 mb-6 leading-tight">Join our Community</h2>
+        <p class="text-white/70 text-lg leading-relaxed mb-10 font-['Nunito_Sans']">
+          Camps Bay belongs to all of us. Whether you own property, rent a home, run a business, or simply call this neighbourhood yours — you are welcome here. Joining the Camps Bay CID community is open to everyone and completely free.
+        </p>
+        <a href="/community" class="btn-gold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Join the Community</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="py-16 bg-[oklch(0.96_0.01_245)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 fade-in-up">
+        <span class="section-label">Working Together</span>
+        <h3 class="font-['Syne'] font-bold text-2xl text-[oklch(0.20_0.07_245)] mt-2">Our Partners</h3>
+      </div>
+      <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14">
+        {partners.map((p) => (
+          <div class="fade-in-up flex flex-col items-center gap-3 group">
+            <div class="w-24 h-24 rounded-xl bg-white shadow-md flex items-center justify-center p-3 opacity-80 group-hover:opacity-100 group-hover:shadow-lg transition-all duration-300">
+              <img src={p.logo} alt={p.name} class="w-full h-full object-contain" />
+            </div>
+            <span class="text-[oklch(0.40_0.04_245)] text-xs font-['Nunito_Sans'] text-center max-w-[96px] leading-tight">{p.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // YouTube play button
+  const playBtn = document.getElementById('youtube-play-btn');
+  const container = document.getElementById('youtube-container');
+  if (playBtn && container) {
+    playBtn.addEventListener('click', () => {
+      container.innerHTML = `<iframe src="https://www.youtube.com/embed/fpJvKaLyotg?rel=0&modestbranding=1&autoplay=1" title="Camps Bay CID" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full border-0"></iframe>`;
+    });
+  }
+
+  // Animated counters on scroll
+  const statBand = document.getElementById('stats-band');
+  if (statBand) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll<HTMLElement>('.stat-number[data-target]').forEach(el => {
+            const target = parseInt(el.getAttribute('data-target') || '0');
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 1800;
+            const startTime = performance.now();
+            const step = (now: number) => {
+              const progress = Math.min((now - startTime) / duration, 1);
+              el.textContent = Math.floor(progress * target) + suffix;
+              if (progress < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+          });
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(statBand);
+  }
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in-up').forEach((el, i) => {
+    (el as HTMLElement).style.transitionDelay = `${(i % 4) * 100}ms`;
+    revealObserver.observe(el);
+  });
+</script>

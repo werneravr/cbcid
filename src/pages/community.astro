@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG';
+const HERO_IMG = `${CDN}/campsbay_lions_head_sunset_3b4c5d6e.jpg`;
+---
+<Layout title="Community | Camps Bay CID" description="Get involved with the Camps Bay CID — subscribe to our newsletter, join our WhatsApp group, volunteer, or become a voting member.">
+  <!-- Hero -->
+  <section class="relative h-72 md:h-96 flex items-end overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image:url(${HERO_IMG})`}></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/90 via-[oklch(0.20_0.07_245)]/40 to-transparent"></div>
+    <div class="relative z-10 container pb-12 text-white">
+      <span class="section-label">Camps Bay CID</span>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl mt-2">Community</h1>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-3xl text-center">
+      <div class="fade-in-up">
+        <span class="section-label">Everyone is welcome</span>
+        <h2 class="font-['Syne'] font-800 text-3xl md:text-4xl text-[oklch(0.20_0.07_245)] mt-3 mb-5">Be Part of Camps Bay</h2>
+        <p class="text-[oklch(0.40_0.04_245)] text-lg leading-relaxed font-['Nunito_Sans']">
+          Camps Bay is more than a postcode — it is a community of residents, business owners, workers, and visitors who share a stake in this extraordinary place. The CID exists to serve everyone who lives and works here, and we believe the more people who are connected, informed, and involved, the better Camps Bay becomes for all of us.
+        </p>
+        <p class="text-[oklch(0.40_0.04_245)] text-lg leading-relaxed font-['Nunito_Sans'] mt-4">
+          Whether you want to stay informed about our work, report a concern, participate in local matters, attend community events, volunteer your skills, or take a formal governance role — there is a place for you here.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-16 bg-[oklch(0.20_0.07_245)]">
+    <div class="container">
+      <div class="fade-in-up grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-[#6CCFF6] flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[oklch(0.20_0.07_245)]"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+          </div>
+          <h2 class="font-['Syne'] font-800 text-3xl text-white mb-4">Subscribe to Our Newsletter</h2>
+          <p class="text-white/75 font-['Nunito_Sans'] leading-relaxed mb-3">
+            Once a month, we send a short summary of what happened in Camps Bay — crime statistics, cleaning outcomes, project updates, and upcoming events. No promotions, no third parties, no noise.
+          </p>
+          <p class="text-white/55 font-['Nunito_Sans'] text-sm">You can unsubscribe at any time. We will never share your details.</p>
+          <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 mt-5">
+            <input type="email" required placeholder="Your email address" class="flex-1 border border-white/20 bg-white/10 text-white placeholder:text-white/50 rounded-xl px-4 py-3 font-['Nunito_Sans'] text-sm focus:outline-none focus:ring-2 focus:ring-[#6CCFF6] transition" />
+            <button type="submit" class="flex-shrink-0 flex items-center gap-2 bg-[#3083DC] text-white font-['Syne'] font-700 px-5 py-3 rounded-xl hover:bg-[#4090E5] transition-colors text-sm">
+              <span>Subscribe</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+          <div id="newsletter-success" class="hidden flex items-center gap-3 text-[#6CCFF6] mt-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="font-['Nunito_Sans'] font-600">You are subscribed — welcome to the community.</span>
+          </div>
+        </div>
+        <div class="text-white/80 font-['Nunito_Sans'] space-y-4">
+          <h3 class="font-['Syne'] font-700 text-xl text-white">What you'll receive</h3>
+          {["Monthly crime statistics and trends", "Cleaning and maintenance outcomes", "Project updates and milestones", "Upcoming community events", "Important notices and alerts"].map((item) => (
+            <div class="flex items-center gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#6CCFF6] flex-shrink-0"></span>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp -->
+  <section class="py-16 bg-white">
+    <div class="container max-w-5xl">
+      <div class="fade-in-up grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-[oklch(0.20_0.07_245)] flex items-center justify-center flex-shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6CCFF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+          </div>
+          <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mb-4">Join Our WhatsApp Community</h2>
+          <p class="text-[oklch(0.40_0.04_245)] font-['Nunito_Sans'] leading-relaxed mb-6">
+            Our WhatsApp community group is the fastest way to stay connected with what's happening in Camps Bay. Get real-time updates, share concerns, and connect with your neighbours.
+          </p>
+          <a href="https://chat.whatsapp.com/GLFNV9ckews6pkJ4V8nlQ8" target="_blank" rel="noopener noreferrer" class="btn-gold inline-flex items-center gap-2">
+            <span>Join WhatsApp Group</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="bg-[oklch(0.96_0.01_245)] rounded-2xl p-8">
+          <h3 class="font-['Syne'] font-700 text-[oklch(0.20_0.07_245)] text-xl mb-4">What happens in the group?</h3>
+          <div class="space-y-3 font-['Nunito_Sans'] text-[oklch(0.40_0.04_245)]">
+            {["Real-time safety alerts and incident updates", "CID announcements and service notifications", "Community questions and discussions", "Event invitations and reminders", "Neighbourhood watch coordination"].map((item) => (
+              <div class="flex items-center gap-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#6CCFF6] flex-shrink-0"></span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voting Membership -->
+  <section class="py-16 bg-[oklch(0.96_0.01_245)]">
+    <div class="container max-w-5xl">
+      <div class="fade-in-up">
+        <span class="section-label">Formal Participation</span>
+        <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mt-3 mb-6">Voting Membership</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <p class="text-[oklch(0.40_0.04_245)] font-['Nunito_Sans'] leading-relaxed mb-5">
+              The Camps Bay CID is a non-profit company (NPC) governed by a Board of Directors elected by its voting members. Voting membership is open to all property owners and business operators within the CID boundary.
+            </p>
+            <p class="text-[oklch(0.40_0.04_245)] font-['Nunito_Sans'] leading-relaxed mb-6">
+              As a voting member, you can attend and vote at the Annual General Meeting, stand for election to the Board of Directors, and participate in the formal governance of the CID.
+            </p>
+            <a href="mailto:connect@campsbaycid.org?subject=Voting Membership Enquiry" class="btn-gold inline-flex items-center gap-2">
+              <span>Enquire About Membership</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+          <div class="bg-white rounded-2xl p-8 shadow-sm">
+            <h3 class="font-['Syne'] font-700 text-[oklch(0.20_0.07_245)] text-xl mb-4">Who can become a voting member?</h3>
+            <div class="space-y-3 font-['Nunito_Sans'] text-[oklch(0.40_0.04_245)]">
+              {["Property owners within the CID boundary", "Business operators within the CID boundary", "Any individual or entity with a formal stake in Camps Bay"].map((item) => (
+                <div class="flex items-center gap-3">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#6CCFF6] flex-shrink-0"></span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[oklch(0.20_0.07_245)]">
+    <div class="container text-center text-white">
+      <div class="fade-in-up">
+        <h3 class="font-['Syne'] font-800 text-3xl mb-4">Ready to Get Involved?</h3>
+        <p class="text-white/70 mb-8 font-['Nunito_Sans']">Contact us to learn more about how you can participate in the Camps Bay CID community.</p>
+        <a href="/contact" class="btn-gold inline-flex items-center gap-2">
+          <span>Contact Us</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('newsletter-form') as HTMLFormElement;
+  const success = document.getElementById('newsletter-success');
+  if (form && success) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+    });
+  }
+</script>

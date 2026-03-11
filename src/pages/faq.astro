@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FAQAccordion from '../components/FAQAccordion.tsx';
+---
+<Layout title="FAQ | Camps Bay CID" description="Answers to common questions about the Camps Bay CID and how City Improvement Districts work.">
+  <!-- Hero -->
+  <section class="bg-[oklch(0.28_0.07_245)] pt-36 pb-16">
+    <div class="container text-white">
+      <span class="section-label">Knowledge Base</span>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl mt-2">Frequently Asked Questions</h1>
+      <p class="text-white/70 mt-4 max-w-xl font-['Nunito_Sans']">Answers to common questions about the Camps Bay CID and how City Improvement Districts work.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-20 bg-[oklch(0.99_0.005_85)]">
+    <div class="container">
+      <FAQAccordion client:load />
+    </div>
+  </section>
+</Layout>

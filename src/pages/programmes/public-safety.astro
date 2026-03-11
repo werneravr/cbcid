@@ -1,0 +1,147 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG';
+const BANNER_IMG = `${CDN}/banner-public-safety_26a8af18.jpg`;
+const OFFICER_PORTRAIT_IMG = `${CDN}/safety-officer-1_23f13341.jpeg`;
+const galleryPhotos = [
+  { src: `${CDN}/safety-officer-portrait_83f0f37c.jpg`, alt: "Public Safety team at Camps Bay", caption: "Our Public Safety Team" },
+  { src: `${CDN}/safety-officer-2_b8cda3bf.jpeg`, alt: "Law Enforcement officer engaging with community", caption: "Community Engagement" },
+  { src: `${CDN}/safety-arrest-1_e180fa9a.jpg`, alt: "Law Enforcement officer on patrol", caption: "Law Enforcement on Patrol" },
+  { src: `${CDN}/safety-arrest-2_4398a0a2.jpg`, alt: "CBCID Public Safety officer vest", caption: "CBCID Public Safety Officers" },
+  { src: `${CDN}/safety-arrest-3_54df4ae3.jpg`, alt: "CCTV cameras against mountain", caption: "CCTV Surveillance Network" },
+  { src: `${CDN}/safety-arrest-4_67f1049c.jpg`, alt: "CCTV infrastructure", caption: "Smart Surveillance Infrastructure" },
+  { src: `${CDN}/safety-arrest-5_6dec3717.jpg`, alt: "Thermal camera footage", caption: "Thermal Imaging Technology" },
+];
+const resources = [
+  { title: "24/7 Control Room", description: "Residents and businesses can report incidents, suspicious activity or service issues at any time.", detail: "Control room: 087 223 2864" },
+  { title: "Law Enforcement Officers", description: "Dedicated officers deployed 24/7 on foot and in tactical vehicles. Authorised to conduct stop-and-search operations, issue fines for bylaw infringements, and make arrests.", detail: "Around the clock" },
+  { title: "Public Safety Officers", description: "Visible foot patrols throughout the suburb, providing rapid response capability and acting as a visible deterrent to crime.", detail: "24/7 visible patrols" },
+  { title: "Armed Tactical Response", description: "Armed tactical response vehicles and officers providing rapid-response capability to support patrol teams and respond to serious incidents.", detail: "24/7 rapid response" },
+  { title: "CCTV Surveillance Network", description: "Dozens of monitored cameras throughout the suburb, including thermal cameras, AI-assisted monitoring technology and licence plate recognition cameras.", detail: "AI-assisted monitoring" },
+  { title: "Community Stewards", description: "Trained stewards from the Social Development Programme work in public spaces daily as additional eyes and ears, supporting the public safety team while contributing to area cleanliness and community wellbeing.", detail: "Holistic community model" },
+];
+---
+<Layout title="Public Safety | Camps Bay CID" description="24/7 public safety patrols, CCTV surveillance, and law enforcement working to keep Camps Bay safe.">
+  <!-- HERO BANNER -->
+  <section class="relative flex items-end overflow-hidden min-h-[480px]">
+    <div class="absolute inset-0 bg-[oklch(0.20_0.07_245)]"></div>
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image:url(${BANNER_IMG})`}></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/90 via-[oklch(0.20_0.07_245)]/40 to-transparent"></div>
+    <div class="relative z-10 container pb-16 pt-40">
+      <div class="section-label mb-3">Programme 01</div>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl text-white leading-tight max-w-3xl">
+        Public<br /><span class="text-[#6CCFF6]">Safety</span>
+      </h1>
+      <p class="text-white/70 mt-4 max-w-xl font-['Nunito_Sans'] text-lg">
+        24/7 patrols, CCTV surveillance, and law enforcement working together to keep Camps Bay safe.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-in-up">
+          <div class="section-label mb-3">Overview</div>
+          <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mb-6">Keeping Camps Bay Safe, Around the Clock</h2>
+          <p class="text-[oklch(0.45_0.04_245)] leading-relaxed font-['Nunito_Sans'] mb-5">
+            The Camps Bay CID's Public Safety Programme deploys dedicated officers 24 hours a day, 7 days a week, to patrol the suburb and respond to incidents. Working in close partnership with SAPS and the City of Cape Town's Law Enforcement, our team provides a visible, proactive safety presence.
+          </p>
+          <p class="text-[oklch(0.45_0.04_245)] leading-relaxed font-['Nunito_Sans']">
+            The programme is supported by an extensive CCTV network with AI-assisted monitoring, thermal cameras, and licence plate recognition technology — giving our control room real-time visibility across the entire suburb.
+          </p>
+        </div>
+        <div class="fade-in-up">
+          <img src={OFFICER_PORTRAIT_IMG} alt="Camps Bay CID Public Safety officer" class="w-full h-[420px] object-cover object-top rounded-2xl shadow-lg" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES GRID -->
+  <section class="py-20 bg-[oklch(0.96_0.01_245)]">
+    <div class="container">
+      <div class="text-center mb-12 fade-in-up">
+        <div class="section-label mb-3">What We Deploy</div>
+        <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)]">Safety Resources</h2>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {resources.map((r) => (
+          <div class="bg-white rounded-2xl p-6 shadow-sm fade-in-up">
+            <div class="w-10 h-10 rounded-xl bg-[oklch(0.28_0.07_245)] flex items-center justify-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6CCFF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="font-['Syne'] font-700 text-lg text-[oklch(0.20_0.07_245)] mb-3">{r.title}</h3>
+            <p class="text-[oklch(0.45_0.04_245)] text-sm leading-relaxed font-['Nunito_Sans'] mb-3">{r.description}</p>
+            <span class="text-xs font-['Syne'] font-700 text-[#6CCFF6] uppercase tracking-wide">{r.detail}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- HOLISTIC MODEL -->
+  <section class="py-20 bg-white">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-in-up">
+          <div class="section-label mb-3">Our Approach</div>
+          <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mb-6">A Unique, Holistic Model</h2>
+          <p class="text-[oklch(0.45_0.04_245)] leading-relaxed font-['Nunito_Sans'] mb-5">
+            The programme incorporates a unique, holistic model through the inclusion of Community Stewards from the CID's Social Development Programme. These trained stewards work in public spaces daily and act as additional eyes and ears on the ground, supporting the public safety team while also contributing to area cleanliness, maintenance and community wellbeing.
+          </p>
+          <p class="text-[oklch(0.45_0.04_245)] leading-relaxed font-['Nunito_Sans']">
+            Through this combination of dedicated personnel, advanced surveillance and community-based support, the Camps Bay CID maintains a proactive and highly visible public safety presence across the suburb.
+          </p>
+        </div>
+        <div class="fade-in-up">
+          <img src={galleryPhotos[0].src} alt={galleryPhotos[0].alt} class="w-full h-[420px] object-cover object-center rounded-2xl shadow-lg" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="py-20 bg-[oklch(0.96_0.01_245)]">
+    <div class="container">
+      <div class="fade-in-up text-center mb-12">
+        <div class="section-label mb-3">In the Field</div>
+        <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)]">Our Team at Work</h2>
+      </div>
+      <div class="mb-4 rounded-2xl overflow-hidden shadow-md">
+        <img src={galleryPhotos[1].src} alt={galleryPhotos[1].alt} class="w-full h-72 md:h-96 object-cover object-center" />
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {galleryPhotos.slice(2).map((photo) => (
+          <div class="group relative rounded-xl overflow-hidden shadow-sm">
+            <img src={photo.src} alt={photo.alt} class="w-full aspect-[4/3] object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <p class="text-white text-xs font-['Nunito_Sans'] font-600">{photo.caption}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[oklch(0.20_0.07_245)]">
+    <div class="container text-center">
+      <div class="fade-in-up">
+        <h3 class="font-['Syne'] font-800 text-2xl text-white mb-3">See Something Suspicious?</h3>
+        <p class="text-white/70 mb-8 font-['Nunito_Sans']">Contact our 24/7 control room immediately. Every report helps keep Camps Bay safe.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="tel:+27872232864" class="btn-gold inline-flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z"/></svg>
+            <span>087 223 2864</span>
+          </a>
+          <a href="/programmes" class="btn-navy border border-white/20 inline-flex items-center gap-2">
+            <span>All Programmes</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

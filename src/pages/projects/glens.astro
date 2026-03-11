@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG';
+const HERO_IMG = `${CDN}/campsbay_beach_sunrise_e5f6a7b8.jpg`;
+const STREAM_IMG = `${CDN}/glens-stream_db61974e.jpg`;
+const TRAIL_IMG = `${CDN}/glens-trail-view_51e5c451.jpg`;
+const TWELVE_APOSTLES_IMG = `${CDN}/glens-twelve-apostles_7910b588.jpg`;
+---
+<Layout title="The Glens | Camps Bay CID" description="The Glens is a natural stream corridor running through Camps Bay. The CID is working to rehabilitate and enhance this unique environmental asset.">
+  <!-- Hero -->
+  <section class="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
+    <div class="absolute inset-0 bg-cover bg-center" style={`background-image:url(${HERO_IMG})`}></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/90 via-[oklch(0.20_0.07_245)]/30 to-transparent"></div>
+    <div class="relative z-10 container pb-10 md:pb-14 text-white">
+      <a href="/projects" class="inline-flex items-center gap-1 text-[#6CCFF6] text-sm font-['Nunito_Sans'] mb-4 hover:opacity-80 transition-opacity">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Our Projects
+      </a>
+      <div class="section-label mb-3">Project</div>
+      <h1 class="font-['Syne'] font-800 text-4xl md:text-6xl leading-tight">
+        The <span class="text-[#6CCFF6]">Glens</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-16 bg-white">
+    <div class="container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div class="fade-in-up">
+          <span class="section-label">Natural Heritage</span>
+          <h2 class="font-['Syne'] font-800 text-3xl text-[oklch(0.20_0.07_245)] mt-3 mb-5">A Natural Stream Corridor</h2>
+          <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] leading-relaxed mb-4">
+            The Glens is a natural stream corridor running through the heart of Camps Bay, connecting the Twelve Apostles mountain range to the ocean. This unique environmental asset provides habitat for indigenous flora and fauna, and offers residents a tranquil natural escape within the suburb.
+          </p>
+          <p class="text-[oklch(0.45_0.04_245)] font-['Nunito_Sans'] leading-relaxed">
+            The CID is working to rehabilitate and enhance the Glens through alien vegetation removal, indigenous planting, and trail maintenance. The goal is to create a safe, accessible, and ecologically rich green corridor for the community.
+          </p>
+        </div>
+        <div class="fade-in-up grid grid-cols-2 gap-4">
+          <img src={STREAM_IMG} alt="The Glens stream" class="rounded-2xl w-full h-48 object-cover" />
+          <img src={TRAIL_IMG} alt="Glens trail view" class="rounded-2xl w-full h-48 object-cover" />
+          <img src={TWELVE_APOSTLES_IMG} alt="Twelve Apostles from the Glens" class="col-span-2 rounded-2xl w-full h-48 object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-[oklch(0.28_0.07_245)]">
+    <div class="container text-center text-white">
+      <h3 class="font-['Syne'] font-800 text-3xl mb-4">See All Projects</h3>
+      <a href="/projects" class="btn-gold inline-flex items-center gap-2">
+        <span>All Projects</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,122 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const CDN = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG';
+const FALLBACK_IMG = `${CDN}/campsbay_sunset_pink_7994fcd2.jpg`;
+
+const allComms = await getCollection('communications', ({ data }) => data.published !== false);
+const comms = allComms.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+// Group by category for filter tabs
+const categories = ['All', ...new Set(comms.map(c => c.data.category))];
+
+function formatDate(dateStr: string) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-ZA', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Layout title="Communications" description="Stay informed with the latest newsletters, announcements, and updates from the Camps Bay City Improvement District.">
+
+  <!-- Page Hero -->
+  <section class="pt-40 pb-16 bg-[oklch(0.20_0.07_245)] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <span class="section-label">Stay Informed</span>
+        <h1 class="font-['Syne'] font-extrabold text-5xl md:text-6xl mt-3 mb-5 leading-tight">Communications</h1>
+        <p class="text-white/70 text-lg font-['Nunito_Sans'] leading-relaxed">
+          Monthly newsletters, announcements, safety updates, and community communications from the Camps Bay CID.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter + Grid -->
+  <section class="py-16 bg-[oklch(0.99_0.005_85)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Category filter tabs -->
+      <div class="flex flex-wrap gap-2 mb-10" id="filter-tabs">
+        {categories.map((cat) => (
+          <button
+            class={`filter-tab px-4 py-2 rounded-full font-['Syne'] font-semibold text-xs uppercase tracking-wider transition-colors ${cat === 'All' ? 'bg-[oklch(0.20_0.07_245)] text-white active' : 'bg-white text-[oklch(0.40_0.04_245)] border border-[oklch(0.85_0.01_245)] hover:border-[oklch(0.20_0.07_245)]'}`}
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="comms-grid">
+        {comms.map((item) => (
+          <a
+            href={`/communications/${item.id}`}
+            class="comm-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all group"
+            data-category={item.data.category}
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src={item.data.coverImage || FALLBACK_IMG}
+                alt={item.data.title}
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/50 to-transparent" />
+              <span class="absolute top-3 left-3 bg-[#6CCFF6] text-[oklch(0.20_0.07_245)] text-xs font-['Syne'] font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                {item.data.category}
+              </span>
+            </div>
+            <div class="p-5">
+              <p class="text-[oklch(0.55_0.04_245)] text-xs font-['Nunito_Sans'] mb-2">{formatDate(item.data.date)}</p>
+              <h3 class="font-['Syne'] font-bold text-lg text-[oklch(0.20_0.07_245)] mb-2 leading-snug group-hover:text-[oklch(0.35_0.07_245)] transition-colors">{item.data.title}</h3>
+              <p class="text-[oklch(0.45_0.04_245)] text-sm font-['Nunito_Sans'] leading-relaxed line-clamp-2">{item.data.summary}</p>
+              <div class="mt-4 flex items-center gap-1.5 text-[oklch(0.55_0.12_70)] text-sm font-['Syne'] font-bold">
+                Read More
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      {comms.length === 0 && (
+        <div class="text-center py-24 text-[oklch(0.55_0.04_245)] font-['Nunito_Sans']">
+          No communications published yet.
+        </div>
+      )}
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Category filter
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.filter-tab');
+  const cards = document.querySelectorAll<HTMLElement>('.comm-card');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const cat = tab.getAttribute('data-category');
+
+      // Update active tab
+      tabs.forEach(t => {
+        t.classList.remove('bg-[oklch(0.20_0.07_245)]', 'text-white', 'active');
+        t.classList.add('bg-white', 'text-[oklch(0.40_0.04_245)]', 'border', 'border-[oklch(0.85_0.01_245)]');
+      });
+      tab.classList.add('bg-[oklch(0.20_0.07_245)]', 'text-white', 'active');
+      tab.classList.remove('bg-white', 'text-[oklch(0.40_0.04_245)]', 'border', 'border-[oklch(0.85_0.01_245)]');
+
+      // Filter cards
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (cat === 'All' || cardCat === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
