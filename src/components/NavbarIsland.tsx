@@ -46,8 +46,8 @@ const navLinks: NavItem[] = [
   { href: "/contact", label: "Contact" },
 ];
 
-const LOGO_WHITE = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663382560453/cbcid-logo-white-text.png";
-const LOGO_DARK = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663382560453/cbcid-logo-transparent.png";
+const LOGO_WHITE = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG/cbcid-logo-white-text_acaf7457.png";
+const LOGO_DARK = "https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG/cbcid-logo-transparent_564e9381.png";
 
 export default function NavbarIsland({ currentPath }: { currentPath: string }) {
   const [scrolled, setScrolled] = useState(false);
