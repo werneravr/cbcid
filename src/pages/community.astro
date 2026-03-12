@@ -45,17 +45,10 @@ const HERO_IMG = `${CDN}/campsbay_lions_head_sunset_3b4c5d6e.jpg`;
             Once a month, we send a short summary of what happened in Camps Bay — crime statistics, cleaning outcomes, project updates, and upcoming events. No promotions, no third parties, no noise.
           </p>
           <p class="text-white/55 font-['Nunito_Sans'] text-sm">You can unsubscribe at any time. We will never share your details.</p>
-          <form id="newsletter-form" class="flex flex-col sm:flex-row gap-3 mt-5">
-            <input type="email" required placeholder="Your email address" class="flex-1 border border-white/20 bg-white/10 text-white placeholder:text-white/50 rounded-xl px-4 py-3 font-['Nunito_Sans'] text-sm focus:outline-none focus:ring-2 focus:ring-[#6CCFF6] transition" />
-            <button type="submit" class="flex-shrink-0 flex items-center gap-2 bg-[#3083DC] text-white font-['Syne'] font-700 px-5 py-3 rounded-xl hover:bg-[#4090E5] transition-colors text-sm">
-              <span>Subscribe</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
-          </form>
-          <div id="newsletter-success" class="hidden flex items-center gap-3 text-[#6CCFF6] mt-5">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <span class="font-['Nunito_Sans'] font-600">You are subscribed — welcome to the community.</span>
-          </div>
+          <a href="https://share-eu1.hsforms.com/1DykTTRZxStaxZp8ShDThNQg0vqm" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-[#3083DC] text-white font-['Syne'] font-700 px-5 py-3 rounded-xl hover:bg-[#4090E5] transition-colors text-sm inline-flex mt-5">
+            <span>Subscribe Now</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
         <div class="text-white/80 font-['Nunito_Sans'] space-y-4">
           <h3 class="font-['Syne'] font-700 text-xl text-white">What you'll receive</h3>
@@ -154,14 +147,4 @@ const HERO_IMG = `${CDN}/campsbay_lions_head_sunset_3b4c5d6e.jpg`;
   </section>
 </Layout>
 
-<script>
-  const form = document.getElementById('newsletter-form') as HTMLFormElement;
-  const success = document.getElementById('newsletter-success');
-  if (form && success) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      form.classList.add('hidden');
-      success.classList.remove('hidden');
-    });
-  }
-</script>
+
