@@ -38,12 +38,55 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <title>{title === 'Camps Bay City Improvement District' ? title : `${title} | Camps Bay CID`}</title>
   </head>
   <body>
+    <div id="password-overlay" style="position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; display: flex; align-items: center; justify-content: center;">
+      <div style="background: white; padding: 3rem; border-radius: 12px; text-align: center; max-width: 400px;">
+        <h2 style="margin: 0 0 1.5rem 0; font-family: 'Syne', sans-serif; font-size: 1.5rem; color: #20072f;">Access Protected</h2>
+        <p style="margin: 0 0 1.5rem 0; color: #666; font-family: 'Nunito Sans', sans-serif;">This site is password protected. Please enter the password to continue.</p>
+        <input id="password-input" type="password" placeholder="Enter password" style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 6px; font-family: monospace; box-sizing: border-box;" />
+        <button id="password-submit" style="width: 100%; padding: 0.75rem; background: #F4C430; color: #20072f; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-family: 'Nunito Sans', sans-serif;">Enter</button>
+      </div>
+    </div>
     <Navbar />
     <main>
       <slot />
     </main>
     {!noFooter && <Footer />}
     <script>
+      // Password protection
+      const correctPassword = 'Mut*e2FPwE9U^2';
+      const overlay = document.getElementById('password-overlay');
+      const input = document.getElementById('password-input');
+      const submit = document.getElementById('password-submit');
+      
+      // Check if password is already stored in session storage
+      if (sessionStorage.getItem('site-unlocked') === 'true') {
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      } else {
+        document.body.style.overflow = 'hidden';
+      }
+      
+      function checkPassword() {
+        if (input.value === correctPassword) {
+          sessionStorage.setItem('site-unlocked', 'true');
+          overlay.style.display = 'none';
+          document.body.style.overflow = 'auto';
+        } else {
+          input.value = '';
+          input.placeholder = 'Incorrect password, try again';
+          input.style.borderColor = '#ff4444';
+          setTimeout(() => {
+            input.placeholder = 'Enter password';
+            input.style.borderColor = '#ddd';
+          }, 2000);
+        }
+      }
+      
+      submit.addEventListener('click', checkPassword);
+      input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') checkPassword();
+      });
+      
       // Scroll reveal for .fade-in-up elements
       const observer = new IntersectionObserver(
         (entries) => {
