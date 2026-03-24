@@ -5,8 +5,9 @@ const OVERVIEW_IMG = `${CDN}/campsbay_fynbos_panorama_9d0e1f2a.jpg`;
 const GREENBELT_IMG = `${CDN}/greenbelt_panorama_6b78529d.jpg`;
 const BEACHFRONT_IMG = `${CDN}/campsbay_beach_sunrise_e5f6a7b8.jpg`;
 const GLENS_IMG = `${CDN}/greenbelt_intro_9cea5e66.jpg`;
+const PLAYGROUND_IMG = 'https://d2xsxph8kpxj0f.cloudfront.net/310519663382560453/YLt7AD2hnj8CinfXJXi2tG/childrens-playground-MPpBTETfFw8Pg5UQrsuF2x.webp';
 ---
-<Layout title="Our Projects | Camps Bay CID" description="Capital improvement projects by the Camps Bay CID — Greenbelt Rehabilitation, Beachfront Upgrades, and the Big & Little Glen.">
+<Layout title="Our Projects | Camps Bay CID" description="Capital improvement projects by the Camps Bay CID — Greenbelt Rehabilitation, Beachfront Upgrades, Big & Little Glen, and Children's Playground.">
   <!-- Hero -->
   <section class="relative h-72 md:h-96 flex items-end overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center" style={`background-image:url(${OVERVIEW_IMG})`}></div>
@@ -21,7 +22,7 @@ const GLENS_IMG = `${CDN}/greenbelt_intro_9cea5e66.jpg`;
   <section class="py-16 bg-white">
     <div class="container max-w-3xl text-center">
       <p class="text-[oklch(0.40_0.04_245)] text-lg leading-relaxed font-['Nunito_Sans']">
-        Beyond our three core ongoing programmes, the Camps Bay CID undertakes a range of one-off projects that upgrade the suburb's public spaces, natural environment, and infrastructure. Each project reflects our commitment to making Camps Bay safer, more beautiful, and more connected.
+        Beyond our three core ongoing programmes, the Camps Bay CID undertakes a range of one-off projects that upgrade the suburb's public spaces, natural environment, and infrastructure. Each project reflects our commitment to making Camps Bay safer, more beautiful, and more connected for all ages and abilities.
       </p>
     </div>
   </section>
@@ -29,7 +30,7 @@ const GLENS_IMG = `${CDN}/greenbelt_intro_9cea5e66.jpg`;
   <!-- Project cards -->
   <section class="pb-20 bg-white">
     <div class="container">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Greenbelt -->
         <a href="/projects/greenbelt" class="group block rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-[oklch(0.97_0.01_245)] fade-in-up">
           <div class="relative h-52 overflow-hidden">
@@ -89,6 +90,28 @@ const GLENS_IMG = `${CDN}/greenbelt_intro_9cea5e66.jpg`;
           <div class="p-6">
             <h2 class="font-['Syne'] font-800 text-xl text-[oklch(0.20_0.07_245)] mb-3 leading-tight group-hover:text-[#6CCFF6] transition-colors">Big & Little Glen</h2>
             <p class="text-[oklch(0.45_0.04_245)] text-sm leading-relaxed font-['Nunito_Sans'] mb-5">Rehabilitating the primary mountain-to-sea ecological corridors in Camps Bay through formal partnerships with SANParks, the Sugarbird Trust, and the City of Cape Town.</p>
+            <div class="flex items-center gap-1 text-[oklch(0.28_0.07_245)] text-sm font-['Nunito_Sans'] font-600 group-hover:text-[#6CCFF6] transition-colors">
+              <span>Learn more</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </div>
+          </div>
+        </a>
+
+        <!-- Children's Playground -->
+        <a href="/projects/playground" class="group block rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-[oklch(0.97_0.01_245)] fade-in-up">
+          <div class="relative h-52 overflow-hidden">
+            <img src={PLAYGROUND_IMG} alt="Children's Playground" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[oklch(0.20_0.07_245)]/70 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 flex items-center gap-2">
+              <div class="w-8 h-8 rounded-full bg-[#6CCFF6] flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[oklch(0.20_0.07_245)]"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <span class="font-['Syne'] font-800 text-white/60 text-sm">Project 04</span>
+            </div>
+          </div>
+          <div class="p-6">
+            <h2 class="font-['Syne'] font-800 text-xl text-[oklch(0.20_0.07_245)] mb-3 leading-tight group-hover:text-[#6CCFF6] transition-colors">Children's Playground</h2>
+            <p class="text-[oklch(0.45_0.04_245)] text-sm leading-relaxed font-['Nunito_Sans'] mb-5">Creating a vibrant, inclusive play space for families in Camps Bay featuring accessible equipment, sensory play areas, and shaded rest zones that welcome children of all abilities.</p>
             <div class="flex items-center gap-1 text-[oklch(0.28_0.07_245)] text-sm font-['Nunito_Sans'] font-600 group-hover:text-[#6CCFF6] transition-colors">
               <span>Learn more</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
